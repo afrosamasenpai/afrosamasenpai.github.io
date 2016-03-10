@@ -1,0 +1,94 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic');
+@font-face {
+    font-family: 'Patua One';
+    src: url('fonts/patuaone.otf');
+}
+
+/*
+orange ff4919
+light grey 676767
+dark grey c0c0c0
+white efefef
+*/
+
+body{
+	font-size: 100%;
+}
+a{
+	color: #ff4919;
+	text-decoration: none;
+}
+a:hover{
+	color: #864458;
+}
+header .logo-type, header .employment-status{
+	font-family: 'Patua One';
+}
+header .logo-type{
+	text-transform: uppercase;
+	font-size: 115%;
+	padding: .25rem;
+}
+header .employment-status{
+	color: #c0c0c0;
+	font-size: 90%;
+}
+div.container{
+	font-family: 'Patua One';
+	color: #676767;
+}
+section#home article h1{
+	text-align: center;
+	font-size: 6vw;
+	padding-bottom: .5em;
+}
+section#home article p{
+	font-size: 150%;
+}
+article p, footer, footer a{
+	font-family: 'Lato';
+	font-weight: 300;
+}
+article p{
+	color: #676767;
+	line-height: 1.43;
+}
+article p strong{
+	font-weight: 700;
+	color: #555;
+}
+section#home a.button.resume{
+	font-family: 'Lato';
+	color: #eee;
+	font-weight: 700;
+	font-size: 125%;
+	text-transform: uppercase;	
+}
+section#home a.button.resume:hover{
+	color: #ff4919;
+}
+footer ul li, footer a{
+	color: #555;
+}
+
+@media screen and (max-width:640px){
+	section#home article h1{
+		text-align: left;
+		font-size: 200%;
+		width: 200px;
+		padding-bottom: .5em;
+	}
+	section#home article p{
+		font-size: 100%;
+	}
+	section#home a.button.resume{
+		font-family: 'Lato';
+		color: #eee;
+		font-weight: 700;
+		font-size: 90%;
+		text-transform: uppercase;	
+	}
+	section#home a.button.resume:hover{
+		color: #ff4919;
+	}
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tyrone Shine | HTML5 & CSS3 lover, Video Game Enthusiast, Web Junkie, Music Patron, Baby Dreadhead</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/typography.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel='stylesheet' type="text/css" href="css/layout.css">
+<!-- Font Awesome -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+
+<header>
+<ul>
+	<a href="index.html"><img src="images/logo.png" class="logo"></a>
+	<li class="logo-type"><a href="index.html">Tyrone Shine</a></li>
+	<li class="employment-status">currently: employed</li>
+</ul>
+</header>
+
+<div class="container">
+	<section id="home">
+		<article>
+			<h1>Howdy, <a href="http://www.tyroneshine.com" target="_blank">Tyrone Shine</a> here.</h1>
+
+	    	<p>Just a kid from <strong>Jamaica, Queens</strong> trying to be the best I can be. At a staggering 21 years old, erm I mean 6'3". I love professional wrestling, music (who doesn&#8217;t love music though?), animation, cartoons, video games, and a whole bunch of other stuff. Beards are also awesome.</p>
+
+			<p>Coming off rather <strong>non-chalant</strong>, it can be interpreted as lack of work ethic. <strong>But why would you stress about something that makes you smile?</strong></p>
+
+			<ul class="work">
+				<li><a href="http://www.tyroneshine.com/">tyroneshine.com</a></li>
+				<li><a href="http://www.dragonballvortex.com/" target="_blank">dragonballvortex.com</a></li>
+				<li><a href="work/soundviewservices/index.html" target="_blank">soundview services</a></li>
+				<li><a href="http://www.no-strollers.tumblr.com/" target="_blank">nostrollers.com</a></li>
+				<li><a href="http://teamdotto.forumotion.net/" target="_blank">teamdotto.forumotion.net</a></li>
+			</ul>
+
+			<a class="button resume" href="tyroneshineresume.pdf" target="_blank">Resume</a>
+		</article>
+	</section>
+
+	<footer>
+		<ul>
+			<li>email: <a href="mailto:tyronewshine@gmail.com">tyronewshine@gmail.com</a></li>
+		</ul>
+	</footer>
+</div>
+
+</body>
+<!-- Scrollin' -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	$('button.work').click(function(){
+	
+		var el = $(this).attr('href');
+		var elWrapped = $(el);
+		
+		scrollToDiv(elWrapped,40);
+		
+		return false;
+	
+	});
+	
+	function scrollToDiv(element,navheight){
+	
+		var offset = element.offset();
+		var offsetTop = offset.top;
+		var totalScroll = offsetTop-navheight;
+		
+		$('body,html').animate({
+				scrollTop: totalScroll
+		}, 450);
+	
+	}
+	
+	$(document).ready(function(){
+
+	// hide #back-top first
+	$("#back").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 350) {
+				$('#back').fadeIn();
+			} else {
+				$('#back').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+
+});
+
+});
+
+</script> 
+</html>

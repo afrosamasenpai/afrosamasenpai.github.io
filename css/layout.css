@@ -1,0 +1,138 @@
+body{
+}
+div.container{
+	position: relative;
+	overflow: hidden;
+	width: 100%;	
+	height: 100vh;
+	background-image: url('../images/desk.jpg');
+	background-position: center;
+	background-size: cover;
+	background-color: #ccc;
+	background-blend-mode: screen;
+	box-sizing: border-box;
+	float: left;
+}
+header{
+	padding: .8rem;
+	height: 80px;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+}
+header img.logo{
+	width: 45px;
+	float: left;
+	padding-right: .5em;
+}
+header ul li{
+	padding: 0 0 .25em;
+}
+section{
+	height: 70%;
+	margin: 13.5em 0 1em
+}
+section#home article{
+	width: 90%;
+	margin: 0 5%;
+}
+section#home article p{
+	width: 70%;
+	margin: 0 auto;
+	padding: .65em 0;
+}
+section#home .work{
+	width: 70%;
+	margin: .5em auto 0;
+}
+section#home .work li{
+	display: inline-block;
+	padding: 0 .75em 0 0;
+}
+section#home .button.resume{
+	background: none;
+	text-align: center;
+	outline: none;
+	border: 1px solid transparent;
+	display: inline-block;
+	border-radius: 50%;
+	height: 125px;
+	width: 125px;
+	padding: 1em;
+	line-height: 4;
+	margin: 1em 40%;
+	box-sizing: border-box;
+	transition: .2s all ease;
+	-webkit-transition: .2s all ease;
+	transform: scale(.85,.85);
+}
+section#home a.button.resume:hover{
+	background: none;
+	text-align: center;
+	outline: none;
+	border: 1px solid #ff4919;
+	border-radius: 50%;
+	cursor: pointer;
+	transform: scale(1.1,1.1);
+}
+footer{
+	background: rgba(255,255,255,.5);
+	position: fixed;
+	bottom: 0;
+	padding: 1.2rem;
+	text-align: center;
+	width: 100%;
+}
+@media screen and (max-width:640px){
+	div.container{
+		overflow-x: hidden;
+		overflow-y: scroll;
+		width: 100%;	
+	}
+	header{
+		background-color: rgba(255,255,255,.65);
+	}
+	section{
+		height: 100%;
+		margin: 6.25em 0 1em
+	}
+	section#home article{
+		width: 100%;
+	}
+	section#home article p{
+		width: 90%;
+		margin-left: 0;
+		padding: .65em 0;
+	}
+	section#home .work{
+		width: 100%;
+		margin: .5em auto 0;
+	}
+	section#home .button.resume{
+		background: none;
+		text-align: center;
+		outline: none;
+		border: 1px solid transparent;
+		display: inline-block;
+		border-radius: 50%;
+		height: 85px;
+		width: 85px;
+		padding: 1em;
+		line-height: 4;
+		margin: 1em 25%;
+		box-sizing: border-box;
+		transition: .2s all ease;
+		-webkit-transition: .2s all ease;
+		transform: scale(.85,.85);
+	}
+	footer{
+		background: rgba(255,255,255,.5);
+		position: relative;
+		bottom: 0;
+		padding: 1.2rem;
+		text-align: center;
+		width: 100%;
+	}
+}
