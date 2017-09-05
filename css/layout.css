@@ -82,7 +82,7 @@ section a.button.resume:hover{
 	transform: scale(1.1,1.1);
 }
 footer{
-	background: rgba(255,255,255,.05);
+	background: rgba(255,255,255,.5);
 	position: fixed;
 	bottom: 0;
 	padding: 1.2rem;
