@@ -13,6 +13,7 @@ jQuery(function($) {
 
 	// History API stuff
 	var $nav = $('nav ul li a');
+	var $content = $('.content');
 
 	$nav.on('click', function(e){
 		if (e.tagret != e.currentTarget){
@@ -28,24 +29,28 @@ jQuery(function($) {
 
 		}
 		e.stopPropagation();
-	});
+	}, false);
 
 	WINDOW.on('popstate', function(e){
-		var character = e.state;
+		console.log(e.state);
 
-		if (character == null) {
-			console.log('I borked!');
-			// removeCurrentClass();
-			// textWrapper.innerHTML = " ";
-			// content.innerHTML = " ";
-			// document.title = defaultTitle;
-		} else {
-			console.log('I worked?');
-			// updateText(character);
-			// requestContent(character + ".php");
-			// addCurrentClass(character);
-			// document.title = "Ghostbuster | " + character;
-		}
+		var url = window.location.href;
+
+		$content.load(url + ' .content > *');
+
+		// if (character == null) {
+		// 	console.log('I borked!');
+		// 	// removeCurrentClass();
+		// 	// textWrapper.innerHTML = " ";
+		// 	// content.innerHTML = " ";
+		// 	// document.title = defaultTitle;
+		// } else {
+		// 	console.log('I worked?');
+		// 	// updateText(character);
+		// 	// requestContent(character + ".php");
+		// 	// addCurrentClass(character);
+		// 	// document.title = "Ghostbuster | " + character;
+		// }
 	});
 
 	// Timing
