@@ -31,7 +31,7 @@ jQuery(function($) {
 
 		}
 		e.stopPropagation();
-	}, false);
+	});
 
 	// WINDOW.on('popstate', function(e){
 	// 	console.log(e.state);
