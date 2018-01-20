@@ -27,10 +27,11 @@ jQuery(function($) {
 			var data = $(this).attr('data-name');
 			var url = $(this).attr('href');
 
+			console.log(data);
 			console.log(url);
 
 			history.pushState(data, null, url);
-			
+			$content.load(url + 'index.html .content > *');
 
 		}
 		e.stopPropagation();
@@ -41,8 +42,12 @@ jQuery(function($) {
 		console.log('PopState')
 		console.log(e.state);
 		console.log(url);
-
+		
 		$content.load(url + 'index.html .content > *');
+
+		if (e.originalEvent.state !== null) {
+			loadPage(location.href);
+		}
 
 		// if (character == null) {
 		// 	console.log('I borked!');
