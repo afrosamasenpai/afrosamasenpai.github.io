@@ -46,10 +46,6 @@ jQuery(function($) {
 		
 		$content.load(url + ' .content > *');
 
-		if (e.originalEvent.state !== null) {
-			loadPage(location.href);
-		}
-
 		// if (character == null) {
 		// 	console.log('I borked!');
 		// 	// removeCurrentClass();
