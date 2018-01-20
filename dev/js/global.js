@@ -14,6 +14,9 @@ jQuery(function($) {
 	// History API stuff
 	var $nav = $('nav ul li a');
 	var $content = $('.content');
+	var init = function(){
+		console.log('Update?');
+	};
 
 	$nav.on('click', function(e){
 		if (e.tagret != e.currentTarget){
@@ -23,35 +26,32 @@ jQuery(function($) {
 			var url = $(this).attr('href');
 
 			history.pushState(data, null, url);
-			// updateText(data);
-			// requestContent(url);
+			$content.load(url + ' .content > *');
 			document.title = "Butts | " + data;
 
 		}
 		e.stopPropagation();
 	}, false);
 
-	WINDOW.on('popstate', function(e){
-		console.log(e.state);
+	// WINDOW.on('popstate', function(e){
+	// 	console.log(e.state);
 
-		var url = window.location.href;
+		
 
-		$content.load(url + ' .content > *');
-
-		// if (character == null) {
-		// 	console.log('I borked!');
-		// 	// removeCurrentClass();
-		// 	// textWrapper.innerHTML = " ";
-		// 	// content.innerHTML = " ";
-		// 	// document.title = defaultTitle;
-		// } else {
-		// 	console.log('I worked?');
-		// 	// updateText(character);
-		// 	// requestContent(character + ".php");
-		// 	// addCurrentClass(character);
-		// 	// document.title = "Ghostbuster | " + character;
-		// }
-	});
+	// 	// if (character == null) {
+	// 	// 	console.log('I borked!');
+	// 	// 	// removeCurrentClass();
+	// 	// 	// textWrapper.innerHTML = " ";
+	// 	// 	// content.innerHTML = " ";
+	// 	// 	// document.title = defaultTitle;
+	// 	// } else {
+	// 	// 	console.log('I worked?');
+	// 	// 	// updateText(character);
+	// 	// 	// requestContent(character + ".php");
+	// 	// 	// addCurrentClass(character);
+	// 	// 	// document.title = "Ghostbuster | " + character;
+	// 	// }
+	// });
 
 	// Timing
 	CustomEase.create('frameAnimation', 'M0,0 C0.107,0 1,0 1,0 1,0 1,0.842 1,1'); // Literally zero transition
