@@ -40,7 +40,8 @@ jQuery(function($) {
 	WINDOW.on('popstate', function(e){
 		var url = window.location.href;
 		console.log('PopState')
-		console.log(e.state);
+		console.log('e.state:' + e.state);
+		console.log('originalEvent: ' + e.originalEvent.state)
 		console.log(url);
 		
 		$content.load(url + 'index.html .content > *');
