@@ -30,7 +30,7 @@ jQuery(function($) {
 			console.log(data);
 			console.log(url);
 
-			history.pushState(data, null, url);
+			history.pushState({}, '', url);
 			$content.load(url + 'index.html .content > *');
 
 		}
