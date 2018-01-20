@@ -31,7 +31,7 @@ jQuery(function($) {
 			console.log(url);
 
 			history.pushState({}, '', url);
-			$content.load(url + 'index.html .content > *');
+			$content.load(url + ' .content > *');
 
 		}
 		e.stopPropagation();
@@ -44,7 +44,7 @@ jQuery(function($) {
 		console.log('originalEvent: ' + e.originalEvent.state)
 		console.log(url);
 		
-		$content.load(url + 'index.html .content > *');
+		$content.load(url + ' .content > *');
 
 		if (e.originalEvent.state !== null) {
 			loadPage(location.href);
