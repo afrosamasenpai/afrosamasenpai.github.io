@@ -1,0 +1,63 @@
+/* Added content */
+p.details{
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  background: #fff;
+  color: #444;
+  padding: 2.5px 5px;
+  font-size: .95em;
+  display: block;
+}
+
+html, body{
+  overflow-x: hidden;
+}
+
+#hikashop_product_top_part h1{
+  padding: 8px 0;
+  font-size: 27px;
+}
+
+#hikashop_product_description_main {
+  padding-top: 20px;
+  width: 50%;
+}
+@media screen and (max-width: 640px){
+  #hikashop_product_description_main {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+#hikashop_product_description_main ul{
+  line-height: 1.8;
+  margin-left: -40px;
+}
+#hikashop_product_description_main ul ul{
+  padding: 5px 0;
+  margin-left: 5%;
+}
+
+.hikashop_category_information h2{
+  font-size: 20px;
+}
+
+#form11 input[type="text"], #form12 input[type="text"]{
+  height: 36px !important;
+}
+ol.mastheadBlank{
+  display: none;
+}
+.wdform_section{
+  margin-top: 25px;
+}
+#form11 .wdform-label-section .wdform-label{
+}
+#form11 .wdform-element-section .button-submit, .wdform-element-section .button-submit{
+  background-color: #006FAB !important;
+}
+.wdform-element-section input[title="Area Code"]{
+  width: 60px !important;
+}
+.wdform-element-section input[name="wdform_9_country12"]{
+  height: 40px;
+}

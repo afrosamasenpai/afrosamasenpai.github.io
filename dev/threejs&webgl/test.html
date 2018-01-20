@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; overflow: hidden; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<div id="background"></div>
+		<script src="js/three.js"></script>
+		<script src='js/THREEx.WindowResize.js'></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+
+		<script>
+			// Our Javascript will go here.
+			// You need to set the scene
+			var scene = new THREE.Scene();
+			// You need to set the camera
+			// First is feild of view
+			// Second is the aspect ratio
+			// Third is the distance for not rendering closer to the camera
+			// Fourth is the distance for not rendering farther from the camera
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			// You have to set the renderer, how else will you see thing?
+			var renderer = new THREE.WebGLRenderer({antialias:true});
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			scene.background = new THREE.Color( '#4F3514' );
+			container = document.getElementById('background');
+  			container.appendChild(renderer.domElement);
+
+			// A simple box
+			// BoxGeometry (width,height,length)
+			var geometry = new THREE.CubeGeometry( 2, 2, 2);
+			var geometry2 = new THREE.BoxGeometry( 3.6, 4, 2);
+			// var material = new THREE.MeshNormalMaterial();
+			// var material2 = new THREE.MeshNormalMaterial();
+			var material = new THREE.MeshBasicMaterial( { color: 0x281D39, shading:THREE.FlatShading} );
+			var material2 = new THREE.MeshBasicMaterial( { color: 0x281D39, shading:THREE.FlatShading} );
+			var cube = new THREE.Mesh( geometry, material );
+			var cube2 = new THREE.Mesh( geometry2, material2 );
+			// Can add things straight to the scene
+			// scene.add( cube );
+			// scene.add( cube2 );
+			// Can group things together and then add  them to the scene
+			var body = new THREE.Group();
+			body.add(cube);
+			body.add(cube2);
+
+			scene.add(body);
+			
+
+			var light = new THREE.PointLight( 0x8E329F );
+			light.position.set( .01, 0, .5 );
+			scene.add( light );
+
+			// How close the rendered things are too the camera
+			// Lower the number, close to the camera
+			camera.position.z = 8;
+
+			// The thing will update on browser resize, hooray
+			THREEx.WindowResize(renderer, camera);
+
+			// Position them
+			cube.position.x = 0;
+			cube.position.y = 0;
+			cube.position.z = 0;
+			cube2.position.x = 0;
+			cube2.position.y = 0;
+			cube2.position.z = 0;
+
+			// Greensock to the rescue
+			// Setup a timeline object with 0.2s stagger. Also reverse on complete.
+			var tl = new TimelineMax({ });
+
+			// renderer.render( scene, camera );
+			// Animate the things
+			tl.set(cube.rotation, {x: '.35'}).set(cube.position, {y: '1.6', z: '1.2'}).set(cube2.position, {y: '-1.4', z: '0'}).set(cube2.rotation, {x: '.15'});
+
+			tl.to(cube.rotation, .6, {x: '-.05', ease: Expo.easeOut})
+				.to(cube.rotation, .25, {x: '.6', ease: Power1.easeOut})
+				.to(cube.rotation, .6, {x: '.35', ease: Power1.easeOut})
+				.to(cube.position, .2 , {y: '1.5', ease: Circ.easeInOut}, '.7')
+				.to(cube.position, .2 , {y: '1.6', ease: Circ.easeInOut}, '.9')
+				.to(cube2.position, .2, {y: '-1.5', ease: Circ.easeInOut}, '.7')
+				.to(cube2.rotation	, .2, {x: '.175', ease: Circ.easeInOut}, '.7')
+				.to(cube2.position, .2, {y: '-1.4', ease: Circ.easeInOut}, '.9')
+				.to(cube2.rotation	, .2, {x: '.15', ease: Circ.easeInOut}, '.9');
+			tl.repeat(-1);
+
+			var tr = new TimelineMax({ });
+			tr.set(cube2.scale, {x: '1', y: '1'});
+
+			tr.to(cube2.scale, 2, {x: '1.1', ease: Circ.easeOut})
+				.to(cube2.scale, 2, {x: '1', ease: Expo.easeInOut})
+				.to(cube2.scale, 2, {y: '1.05', ease: Circ.easeOut}, '.25')
+				.to(cube2.scale, 2, {y: '1', ease: Expo.easeInOut}, '2.25')
+				;
+			tr.repeat(-1);
+
+			function animate() {
+				// This is a must so is actually know to render the thing
+				// Don't use a settimout because it'll render things even if not viewed and it'll slow things down
+				requestAnimationFrame( animate );
+				// Movement goes before the renderer so that it 
+				// Tell it what to render
+				renderer.render( scene, camera );
+			}
+			// Render the things
+			animate();
+		</script>
+	</body>
+</html>
