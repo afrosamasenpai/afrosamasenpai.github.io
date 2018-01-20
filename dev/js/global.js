@@ -27,12 +27,10 @@ jQuery(function($) {
 			var data = $(this).attr('data-name');
 			var url = $(this).attr('href');
 
-			console.log(data);
 			console.log(url);
 
 			history.pushState(data, null, url);
-			$content.load(url + 'index.html .content > *');
-			document.title = "Butts | " + data;
+			
 
 		}
 		e.stopPropagation();
