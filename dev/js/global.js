@@ -16,6 +16,8 @@ jQuery(function($) {
 	var $content = $('.content');
 	var init = function(){
 		console.log('Update?');
+
+		BODY.removeClass('home').addClass('changed');
 	};
 
 	$nav.on('click', function(e){
@@ -25,33 +27,39 @@ jQuery(function($) {
 			var data = $(this).attr('data-name');
 			var url = $(this).attr('href');
 
+			console.log(data);
+			console.log(url);
+
 			history.pushState(data, null, url);
-			$content.load(url + ' .content > *');
+			$content.load(url + 'index.html .content > *');
 			document.title = "Butts | " + data;
 
 		}
 		e.stopPropagation();
 	});
 
-	// WINDOW.on('popstate', function(e){
-	// 	console.log(e.state);
+	WINDOW.on('popstate', function(e){
+		var url = window.location.href;
+		console.log('PopState')
+		console.log(e.state);
+		console.log(url);
 
-		
+		$content.load(url + 'index.html .content > *');
 
-	// 	// if (character == null) {
-	// 	// 	console.log('I borked!');
-	// 	// 	// removeCurrentClass();
-	// 	// 	// textWrapper.innerHTML = " ";
-	// 	// 	// content.innerHTML = " ";
-	// 	// 	// document.title = defaultTitle;
-	// 	// } else {
-	// 	// 	console.log('I worked?');
-	// 	// 	// updateText(character);
-	// 	// 	// requestContent(character + ".php");
-	// 	// 	// addCurrentClass(character);
-	// 	// 	// document.title = "Ghostbuster | " + character;
-	// 	// }
-	// });
+		// if (character == null) {
+		// 	console.log('I borked!');
+		// 	// removeCurrentClass();
+		// 	// textWrapper.innerHTML = " ";
+		// 	// content.innerHTML = " ";
+		// 	// document.title = defaultTitle;
+		// } else {
+		// 	console.log('I worked?');
+		// 	// updateText(character);
+		// 	// requestContent(character + ".php");
+		// 	// addCurrentClass(character);
+		// 	// document.title = "Ghostbuster | " + character;
+		// }
+	});
 
 	// Timing
 	CustomEase.create('frameAnimation', 'M0,0 C0.107,0 1,0 1,0 1,0 1,0.842 1,1'); // Literally zero transition
