@@ -22,8 +22,8 @@ jQuery(function($) {
 			var url = $(this).attr('href');
 
 			history.pushState(data, null, url);
-			updateText(data);
-			requestContent(url);
+			// updateText(data);
+			// requestContent(url);
 			document.title = "Butts | " + data;
 
 		}
