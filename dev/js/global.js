@@ -27,6 +27,7 @@ jQuery(function($) {
 
 		console.log('e.tagret is: ' + e.target);
 		console.log('e.currentTarget is: ' + e.currentTarget);
+		console.log('window is: ' + window.location.href)
 
 		var $this = $(this);
 		var data = $this.attr('data-name');
@@ -37,7 +38,7 @@ jQuery(function($) {
 
 		$this.data("data", data);
 
-		if (e.target != e.currentTarget){
+		if (e.target != window.location.href){
 
 			history.pushState({}, '', url);
 			$content.load(url + ' .content > *');
