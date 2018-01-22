@@ -14,13 +14,18 @@ jQuery(function($) {
 	// History API stuff
 	var $nav = $('nav ul li a');
 	var $content = $('.content');
-	var init = function(){
+	var init = function(page){
 		console.log('Update?');
 
-		BODY.removeClass('home').addClass('changed');
+		BODY.removeClass().addClass(page);
+
+		// animation goes here?
 	};
 
 	$nav.on('click', function(e){
+		console.log('e.tagret is: ' + e.tagret);
+		console.log('e.currentTarget is: ' + e.currentTarget)
+
 		if (e.tagret != e.currentTarget){
 			e.preventDefault();
 
@@ -33,32 +38,20 @@ jQuery(function($) {
 			history.pushState({}, '', url);
 			$content.load(url + ' .content > *');
 
+			init(data);
 		}
 		e.stopPropagation();
-	});
+	}, false);
 
 	WINDOW.on('popstate', function(e){
 		var url = window.location.href;
 		console.log('PopState')
 		console.log('e.state:' + e.state);
-		console.log('originalEvent: ' + e.originalEvent.state)
 		console.log(url);
 		
 		$content.load(url + ' .content > *');
 
-		// if (character == null) {
-		// 	console.log('I borked!');
-		// 	// removeCurrentClass();
-		// 	// textWrapper.innerHTML = " ";
-		// 	// content.innerHTML = " ";
-		// 	// document.title = defaultTitle;
-		// } else {
-		// 	console.log('I worked?');
-		// 	// updateText(character);
-		// 	// requestContent(character + ".php");
-		// 	// addCurrentClass(character);
-		// 	// document.title = "Ghostbuster | " + character;
-		// }
+		init(data);
 	});
 
 	// Timing
