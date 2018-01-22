@@ -41,7 +41,7 @@ jQuery(function($) {
 			init(data);
 		}
 		e.stopPropagation();
-	}, false);
+	});
 
 	WINDOW.on('popstate', function(e){
 		var url = window.location.href;
