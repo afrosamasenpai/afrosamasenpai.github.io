@@ -49,8 +49,10 @@ jQuery(function($) {
 	});
 
 	WINDOW.on('popstate', function(e){
+		var $this = $(this);
 		var url = window.location.href;
 		var data = $this.data("data");
+		
 		console.log('PopState')
 		console.log('e.state:' + e.state);
 		console.log(url);
