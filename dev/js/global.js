@@ -23,11 +23,13 @@ jQuery(function($) {
 	};
 
 	$nav.on('click', function(e){
+		e.preventDefault();
+		
 		console.log('e.tagret is: ' + e.target);
 		console.log('e.currentTarget is: ' + e.currentTarget)
 
 		if (e.target != e.currentTarget){
-			e.preventDefault();
+			
 
 			var data = $(this).attr('data-name');
 			var url = $(this).attr('href');
