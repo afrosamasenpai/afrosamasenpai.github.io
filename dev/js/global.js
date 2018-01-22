@@ -23,10 +23,10 @@ jQuery(function($) {
 	};
 
 	$nav.on('click', function(e){
-		console.log('e.tagret is: ' + e.tagret);
+		console.log('e.tagret is: ' + e.target);
 		console.log('e.currentTarget is: ' + e.currentTarget)
 
-		if (e.tagret != e.currentTarget){
+		if (e.target != e.currentTarget){
 			e.preventDefault();
 
 			var data = $(this).attr('data-name');
