@@ -52,10 +52,11 @@ jQuery(function($) {
 		var $this = $(this);
 		var url = window.location.href;
 		var data = $this.data("data");
-		
+
 		console.log('PopState')
 		console.log('e.state:' + e.state);
 		console.log(url);
+		console.log('data is:' + data);
 		
 		$content.load(url + ' .content > *');
 
