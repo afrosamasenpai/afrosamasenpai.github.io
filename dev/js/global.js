@@ -26,24 +26,30 @@ jQuery(function($) {
 		e.preventDefault();
 
 		console.log('e.tagret is: ' + e.target);
-		console.log('e.currentTarget is: ' + e.currentTarget)
+		console.log('e.currentTarget is: ' + e.currentTarget);
 
-		var data = $(this).attr('data-name');
-		var url = $(this).attr('href');
+		var $this = $(this);
+		var data = $this.attr('data-name');
+		var url = $this.attr('href');
 
 		console.log(data);
 		console.log(url);
 
-		history.pushState({}, '', url);
-		$content.load(url + ' .content > *');
+		$this.data("data", data);
 
-		init(data);
-			
+		if (e.target != e.currentTarget){
+
+			history.pushState({}, '', url);
+			$content.load(url + ' .content > *');
+
+			init(data);
+		}
 		e.stopPropagation();
 	});
 
 	WINDOW.on('popstate', function(e){
 		var url = window.location.href;
+		var data = $this.data("data");
 		console.log('PopState')
 		console.log('e.state:' + e.state);
 		console.log(url);
