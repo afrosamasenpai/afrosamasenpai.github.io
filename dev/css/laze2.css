@@ -14,7 +14,7 @@
 
 body {
 	font-size: 18px;
-	font-family: 'Titillium Web';
+	font-family: 'Titillium Web', sans-serif;
 	font-weight: 400;
 	color: #281D39;
 	line-height: 1.6;
@@ -22,13 +22,13 @@ body {
 	height: 100vh;
 	box-sizing: border-box;
 	/*border: 20px solid #FBCB9A;*/
-	background-color: #4F3514;
+	background-color: #fdfdfd;
 	overflow-x: hidden;
 }
 
-/*body.ready {
+body.wanted-more {
 	background-color: #4F3514;;
-}*/
+}
 
 strong {
 	font-weight: 600;
@@ -100,7 +100,7 @@ blockquote {
 
 blockquote p {
 	font-weight: 900;
-	font-family: 'Lato';
+	font-family: 'Lato', sans-serif;
 	letter-spacing: .08em;
 }
 
@@ -219,7 +219,38 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -10;
+}
+
+.wanted-more .hero-container {
+	z-index: -10;
+}
+
+.sleepy-container {
+	text-align: center;
+	margin-top: 144px;
+	position: relative;
+	z-index: 10;
+}
+
+.sleepy-container > * {
+    font-size: .85em;
+    display: block;
+}	
+
+.sleepy-container > *,
+.sleepy-container .small-caps,
+.sleepy-container > * a{
+	color: #281D39;
+}
+
+.sleepy-container button {
+    margin-top: 16px;
+}
+
+.wanted-more .sleepy-container {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
 }
 
 p, ul, ol {
@@ -324,21 +355,21 @@ ul li, ol li {
     flex-direction: column;
 }
 
-.button-container button {
+button {
     background-color: #89c4f4;
     border: 4px solid transparent;
     outline: none;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     font-weight: 900;
     color: #281D39;
     padding: 8px 24px;
-    margin-bottom: 4px;
+    margin: 0 auto 4px;
     transition: .25s ease-in-out all;
     cursor: pointer;
 }
 
-.button-container button:after {
+button:after {
 	content: '';
 	width: 80%;
 	margin: auto;
@@ -353,17 +384,23 @@ ul li, ol li {
 	transition: .25s ease-in-out all;
 }
 
-.button-container button:hover {
+button:hover {
+	color: #89c4f4;
+	border: 4px solid #89c4f4;
+	background-color: transparent;
+}
+
+/*button:hover {
 	color: #FBCB9A;
 	border: 4px solid #FBCB9A;
 	background: transparent;
 	transform: translateY(-12px);
 }
 
-.button-container button:hover:after {
+button:hover:after {
 	bottom: -20px;
 	opacity: 1;
-}
+}*/
 
 .button-container {
 	font-size: .85rem;
@@ -399,12 +436,6 @@ ul li, ol li {
 	visibility: hidden;
 }
 
-/*body:not(.ready) .logo-container,
-body:not(.ready) nav{
-	opacity: 0;
-	visibility: block;
-}*/
-
 footer {
 	padding: 24px;
 	background-color: #281D39;
@@ -424,4 +455,47 @@ footer {
 
 footer .tiny-text {
 	font-size: .9em;
+}
+
+body:not(.wanted-more) .logo-container,
+body:not(.wanted-more) nav,
+body:not(.wanted-more) footer{
+	display: none;
+	opacity: 0;
+	visibility: block;
+}
+
+body:not(.ready) .sleepy-container,
+body:not(.ready) .sleepy-container button{
+	opacity: 0;
+	visibility: hidden;
+}
+
+.ready .sleepy-container > * {
+	animation-name: fadeIn;
+    animation-duration: .45s;
+    animation-fill-mode: backwards;
+}
+
+.ready .sleepy-container > *:nth-child(1){
+	animation-delay: .2s;
+}
+
+.ready .sleepy-container > *:nth-child(2){
+	animation-delay: .4s;
+}
+
+.ready .sleepy-container > *:nth-child(3){
+	animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+    	opacity: 0;
+    	transform: translateY(-24px);
+    }
+    to {
+    	opacity: 1;
+    	transform: translateY(0);
+    }
 }

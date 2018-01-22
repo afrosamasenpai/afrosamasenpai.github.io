@@ -6,10 +6,11 @@ jQuery(function($) {
 	// DOM
 	var WINDOW = $(window);
 	var BODY = $('body');
-	var $breathAnimationContainer = $('.breath_animation');
-	var $wakeupAnimationContainer = $('.wakeup_animation');
+	var $breathAnimationContainer = $('.breath-animation');
+	var $wakeupAnimationContainer = $('.wakeup-animation');
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
 	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
+	var $wantMore = $('.want-more');
 
 	// History API stuff
 	var $nav = $('nav ul li a');
@@ -21,6 +22,12 @@ jQuery(function($) {
 
 		// animation goes here?
 	};
+
+	$wantMore.on('click', function(e){
+		e.preventDefault();
+
+		BODY.addClass('wanted-more');
+	});
 
 	$nav.on('click', function(e){
 		e.preventDefault();
@@ -83,7 +90,6 @@ jQuery(function($) {
 			$wakeupAnimationContainer.addClass('hidden');
 			animationBreath.play(0);
 			// animationBreath.updateTo({ paused: true, repeat: -1, yoyo: true});
-
 		})
 	 });
 
