@@ -18,7 +18,7 @@ jQuery(function($) {
 	var init = function(page){
 		console.log('Update?');
 
-		BODY.removeClass().addClass(page);
+		BODY.removeClass().addClass(page + ' ready wanted-more');
 
 		// animation goes here?
 	};
