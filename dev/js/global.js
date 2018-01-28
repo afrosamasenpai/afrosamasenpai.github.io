@@ -6,7 +6,7 @@ jQuery(function($) {
 	// DOM
 	var WINDOW = $(window);
 	var BODY = $('body');
-	var container = $('.container');
+	var container = $('.content-container .container');
 	var $breathAnimationContainer = $('.breath-animation');
 	var $wakeupAnimationContainer = $('.wakeup-animation');
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
