@@ -6,6 +6,7 @@ jQuery(function($) {
 	// DOM
 	var WINDOW = $(window);
 	var BODY = $('body');
+	var container = $('.container');
 	var $breathAnimationContainer = $('.breath-animation');
 	var $wakeupAnimationContainer = $('.wakeup-animation');
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
@@ -18,16 +19,10 @@ jQuery(function($) {
 	var init = function(page){
 		console.log('Update?');
 
-		BODY.removeClass().addClass(page + ' ready wanted-more');
+		container.removeClass().addClass('container' + page);
 
 		// animation goes here?
 	};
-
-	$wantMore.on('click', function(e){
-		e.preventDefault();
-
-		BODY.addClass('wanted-more');
-	});
 
 	$nav.on('click', function(e){
 		e.preventDefault();
@@ -37,20 +32,21 @@ jQuery(function($) {
 		console.log('window is: ' + window.location.href)
 
 		var $this = $(this);
-		var data = $this.attr('data-name');
+		var name = $this.attr('data-name');
 		var url = $this.attr('href');
 
-		console.log(data);
+		console.log(name);
 		console.log(url);
 
-		$this.data("data", data);
+		$this.data("name", name);
 
 		if (e.target != window.location.href){
 
 			history.pushState({}, '', url);
-			$content.load(url + ' .content > *');
+			$content.load(url + ' .content-container > *');
+			$('nav ul li').load(url + ' nav ul li')
 
-			init(data);
+			init(name);
 		}
 		e.stopPropagation();
 	});
@@ -58,16 +54,16 @@ jQuery(function($) {
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
 		var url = window.location.href;
-		var data = $this.data("data");
+		var name = $this.data("name");
 
 		console.log('PopState')
 		console.log('e.state:' + e.state);
 		console.log(url);
-		console.log('data is:' + data);
+		console.log('data is:' + name);
 		
-		$content.load(url + ' .content > *');
+		$content.load(url + ' .content-container > *');
 
-		init(data);
+		init(name);
 	});
 
 	// Timing
@@ -94,7 +90,7 @@ jQuery(function($) {
 	 });
 
 	animationBreath
-		.to($breathAnimationSVG, (oneFrame * 5), {yoyo: true, attr:{ viewBox:'0 0 52 35'}, ease: 'frameAnimation'})
+		.to($breathAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'0 0 52 35'}, ease: 'frameAnimation'})
 		.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'0 0 52 35'}, ease: 'frameAnimation'})
 		.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'52 0 52 35'}, ease: 'frameAnimation'})
 		.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'104 0 52 35'}, ease: 'frameAnimation'})
@@ -102,7 +98,7 @@ jQuery(function($) {
 		.to($breathAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'156 0 52 35'}, ease: 'frameAnimation' });
 
 	animationWakeup
-		.to($wakeupAnimationSVG, (oneFrame * 5), {yoyo: true, attr:{ viewBox:'0 0 52 37'}, ease: 'frameAnimation'})
+		.to($wakeupAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'0 0 52 37'}, ease: 'frameAnimation'})
 		.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'0 0 52 37'}, ease: 'frameAnimation'})
 		.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'52 0 52 37'}, ease: 'frameAnimation'})
 		.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'104 0 52 37'}, ease: 'frameAnimation'})
