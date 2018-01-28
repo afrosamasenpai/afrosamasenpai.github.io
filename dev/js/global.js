@@ -6,7 +6,7 @@ jQuery(function($) {
 	// DOM
 	var WINDOW = $(window);
 	var BODY = $('body');
-	var container = $('.content-container');
+	var $container = $('container');
 	var $breathAnimationContainer = $('.breath-animation');
 	var $wakeupAnimationContainer = $('.wakeup-animation');
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
@@ -15,11 +15,12 @@ jQuery(function($) {
 
 	// History API stuff
 	var $nav = $('nav ul li a');
-	var $content = $('.content');
+	var $content = $('.content-container');
 	var init = function(page){
 		console.log('Update?');
 
-		container.removeClass().addClass('container' + page);
+		BODY.removeClass().addClass('ready');
+		$container.removeClass().addClass('container ' + page);
 
 		// animation goes here?
 	};
