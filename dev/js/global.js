@@ -12,6 +12,13 @@ jQuery(function($) {
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
 	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
 	var $wantMore = $('.want-more');
+	// URL check
+	var location = window.location.href;
+	var urlReg = /^(.*\/)?(?:$|(.+?)(?:(\.[^.]*$)|$))/ig;
+
+	console.log(location);
+	console.log(urlReg);
+	console.log(location.replace(urlReg, '') );
 
 	// History API stuff
 	var $nav = $('header nav ul li a');
@@ -30,7 +37,7 @@ jQuery(function($) {
 
 		console.log('e.tagret is: ' + e.target);
 		console.log('e.currentTarget is: ' + e.currentTarget);
-		console.log('window is: ' + window.location.href)
+		console.log('window is: ' + window.location.href);
 
 		var $this = $(this);
 		var name = $this.attr('data-name');
