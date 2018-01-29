@@ -425,17 +425,16 @@ button:hover, .button:hover{
 	text-align: center;
 }
 
+/* BEGIN animation container */
 .animation-container {
 	width: 100%;
 	max-width: 280px;
 	height: auto;
 	position: absolute;
 	transition: .5s all ease;
-	/* visibility: hidden; */
 }
 
 .animation-container > * {
-	/* height: 100%; */
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -451,8 +450,8 @@ button:hover, .button:hover{
 }
 
 .animation-container > *.hidden {
-	display: none;
 	visibility: hidden;
+	opacity: 0;
 }
 
 .container:not(.home) .animation-container {
@@ -467,6 +466,7 @@ footer {
 	width: 100%;
 	display: flex;
 	padding: 16px 48px 24px;
+	position: absolute;
 	justify-content: space-between;
 }
 

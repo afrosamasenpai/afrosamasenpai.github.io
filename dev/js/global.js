@@ -14,7 +14,7 @@ jQuery(function($) {
 	var $wantMore = $('.want-more');
 
 	// History API stuff
-	var $nav = $('nav ul li a');
+	var $nav = $('header nav ul li a');
 	var $content = $('.content-container');
 	var init = function(page){
 		console.log('Update?');
