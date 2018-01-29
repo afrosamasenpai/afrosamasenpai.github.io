@@ -31,7 +31,6 @@ jQuery(function($) {
 		BODY.removeClass().addClass('ready');
 		$container.removeClass().addClass('container ' + page);
 
-		// animation goes here?
 	};
 
 	$nav.on('click', function(e){
@@ -59,6 +58,7 @@ jQuery(function($) {
 			init(name);
 		}
 		e.stopPropagation();
+		return false;
 	});
 
 	WINDOW.on('popstate', function(e){
