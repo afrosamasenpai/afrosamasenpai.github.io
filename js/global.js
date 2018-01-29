@@ -21,8 +21,10 @@ jQuery(function($) {
 	// console.log(location.match(urlReg));
 
 	// History API stuff
+	var $navLi = $('nav ul li');
 	var $nav = $('header nav ul li a');
 	var $content = $('.content-container');
+	
 	var init = function(page){
 		console.log('Update?');
 
@@ -52,7 +54,7 @@ jQuery(function($) {
 
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
-			$('nav ul li').load(url + ' nav ul li')
+			navLi.load(url + ' ' + $nav);
 
 			init(name);
 		}
@@ -71,6 +73,7 @@ jQuery(function($) {
 		console.log(url.match(urlReg)[0]);
 
 		$content.load(url + ' .content-container > *');
+		navLi.load(url + ' ' + $nav);
 
 		if ( url.match(urlReg)[0] != 'tyronekinda.works') {
 			init(url.match(urlReg));
