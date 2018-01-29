@@ -59,12 +59,10 @@ jQuery(function($) {
 		var url = window.location.href;
 		var name = $this.data("name");
 
-		console.log(url.match(urlReg)[0]);
-
 		$content.load(url + ' .content-container > *');
 		$navLi.load(url + ' ' + $nav);
 
-		if ( url.match(urlReg)[0] != 'tyronekinda.works') {
+		if ( url.match(urlReg) != 'tyronekinda.works') {
 			init(url.match(urlReg));
 		} else {
 			init('home');
