@@ -18,7 +18,7 @@ jQuery(function($) {
 
 	console.log(location);
 	console.log(urlReg);
-	console.log(location.replace(urlReg, '') );
+	console.log(location.match(urlReg) );
 
 	// History API stuff
 	var $nav = $('header nav ul li a');
