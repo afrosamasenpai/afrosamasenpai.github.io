@@ -16,9 +16,9 @@ jQuery(function($) {
 	// var location = window.location.href;
 	var urlReg = /[^\/]+(?=\/$|$)/ig;
 
-	console.log(location);
-	console.log(urlReg);
-	console.log(location.match(urlReg));
+	// console.log(location);
+	// console.log(urlReg);
+	// console.log(location.match(urlReg));
 
 	// History API stuff
 	var $nav = $('header nav ul li a');
