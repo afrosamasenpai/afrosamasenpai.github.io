@@ -70,6 +70,7 @@ jQuery(function($) {
 		console.log('data is:' + name);
 		
 		$content.load(url + ' .content-container > *');
+		$('nav ul li').load(url + ' nav ul li a');
 
 		init(name);
 	});
