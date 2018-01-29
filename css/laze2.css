@@ -236,21 +236,27 @@ nav ul li a:visited:after {
 
 /* BEGIN Container */
 .background-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -10;
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
 }
 
 .sleepy-container {
-	text-align: center;
-	margin-top: 144px;
+	margin-top: 80px;
 	position: relative;
 	z-index: 10;
 }
@@ -428,26 +434,26 @@ button:hover, .button:hover{
 
 /* BEGIN animation container */
 .animation-container {
-	width: 100%;
+/*	width: 100%;
 	max-width: 280px;
-	height: auto;
+	 height: 200px; 
 	position: absolute;
-	transition: .5s all ease;
+	transition: .5s all ease;*/
 }
 
 .animation-container > * {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+/*	width: 100%;
+	height: 100%;*/
 }
 
 .animation-container > * svg {
-	width: 100%;
+/*	width: 100%;
 	height: auto;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
 	padding-top: 16px;
+	overflow: visible;*/
 }
 
 .animation-container > *.hidden {

@@ -13,7 +13,6 @@ jQuery(function($) {
 	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
 	var $wantMore = $('.want-more');
 	// URL check
-	// var location = window.location.href;
 	var urlReg = /[^\/]+(?=\/$|$)/ig;
 
 	// console.log(location);
@@ -51,8 +50,7 @@ jQuery(function($) {
 			init(name);
 		}
 		e.stopPropagation();
-		return false;
-	});
+	}, false);
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
