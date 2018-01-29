@@ -68,11 +68,11 @@ jQuery(function($) {
 		console.log('e.state:' + e.state);
 		console.log(url);
 		console.log('data is:' + name);
-		console.log(url.match(urlReg));
-		
+		console.log(url.match(urlReg)[0]);
+
 		$content.load(url + ' .content-container > *');
 
-		if ( url.match(urlReg) != 'tyronekinda.works') {
+		if ( url.match(urlReg)[0] != 'tyronekinda.works') {
 			init(url.match(urlReg));
 		} else {
 			init('home');
