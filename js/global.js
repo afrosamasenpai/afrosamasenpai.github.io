@@ -68,6 +68,7 @@ jQuery(function($) {
 		console.log('e.state:' + e.state);
 		console.log(url);
 		console.log('data is:' + name);
+		console.log(url.match(urlReg));
 		
 		$content.load(url + ' .content-container > *');
 
