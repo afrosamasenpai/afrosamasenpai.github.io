@@ -46,7 +46,7 @@ jQuery(function($) {
 
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
-			$navLi.load(url + ' ' + $nav);
+			$navLi.load(url + ' nav ul li a');
 
 			init(name);
 		}
@@ -60,7 +60,7 @@ jQuery(function($) {
 		var name = $this.data("name");
 
 		$content.load(url + ' .content-container > *');
-		$navLi.load(url + ' ' + $nav);
+		$navLi.load(url + ' ' + ' nav ul li a');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
 			init(url.match(urlReg));
