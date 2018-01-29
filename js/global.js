@@ -36,16 +36,9 @@ jQuery(function($) {
 	$nav.on('click', function(e){
 		e.preventDefault();
 
-		console.log('e.tagret is: ' + e.target);
-		console.log('e.currentTarget is: ' + e.currentTarget);
-		console.log('window is: ' + window.location.href);
-
 		var $this = $(this);
 		var name = $this.attr('data-name');
 		var url = $this.attr('href');
-
-		console.log(name);
-		console.log(url);
 
 		$this.data("name", name);
 
@@ -66,10 +59,6 @@ jQuery(function($) {
 		var url = window.location.href;
 		var name = $this.data("name");
 
-		console.log('PopState')
-		console.log('e.state:' + e.state);
-		console.log(url);
-		console.log('data is:' + name);
 		console.log(url.match(urlReg)[0]);
 
 		$content.load(url + ' .content-container > *');
