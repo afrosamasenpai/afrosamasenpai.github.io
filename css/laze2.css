@@ -434,26 +434,24 @@ button:hover, .button:hover{
 
 /* BEGIN animation container */
 .animation-container {
-/*	width: 100%;
+	width: 100%;
 	max-width: 280px;
-	 height: 200px; 
 	position: absolute;
-	transition: .5s all ease;*/
+	transition: .5s all ease;
 }
 
 .animation-container > * {
-/*	width: 100%;
-	height: 100%;*/
+	width: 100%;
+	height: 100%;
 }
 
 .animation-container > * svg {
-/*	width: 100%;
+	width: 100%;
 	height: auto;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
 	padding-top: 16px;
-	overflow: visible;*/
 }
 
 .animation-container > *.hidden {

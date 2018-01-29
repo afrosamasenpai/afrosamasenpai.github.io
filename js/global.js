@@ -50,7 +50,7 @@ jQuery(function($) {
 			init(name);
 		}
 		e.stopPropagation();
-	}, false);
+	});
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
