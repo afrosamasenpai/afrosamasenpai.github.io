@@ -13,12 +13,12 @@ jQuery(function($) {
 	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
 	var $wantMore = $('.want-more');
 	// URL check
-	var location = window.location.href;
+	// var location = window.location.href;
 	var urlReg = /[^\/]+(?=\/$|$)/ig;
 
 	console.log(location);
 	console.log(urlReg);
-	console.log(location.match(urlReg) );
+	console.log(location.match(urlReg));
 
 	// History API stuff
 	var $nav = $('header nav ul li a');
@@ -71,7 +71,12 @@ jQuery(function($) {
 		
 		$content.load(url + ' .content-container > *');
 
-		init(name);
+		if ( url.match(urlReg) != 'tyronekinda.works') {
+			init(url.match(urlReg));
+		} else {
+			init('home');
+		}
+
 	});
 
 	// Timing
