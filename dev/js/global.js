@@ -52,7 +52,7 @@ jQuery(function($) {
 
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
-			$('nav ul li').load(url + ' nav ul li')
+			$('nav ul li').load(url + ' nav ul li a');
 
 			init(name);
 		}
