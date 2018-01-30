@@ -1,10 +1,12 @@
 jQuery(function($) {
 	'use strict';
 
+	// Check if the JS is working because you can never be too careful
 	console.log('Initilize?');
 
 	// DOM
 	var WINDOW = $(window);
+	var HTML = $('html');
 	var BODY = $('body');
 	var $container = $('.container');
 	var $breathAnimationContainer = $('.breath-animation');
@@ -12,25 +14,30 @@ jQuery(function($) {
 	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
 	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
 	var $wantMore = $('.want-more');
+	var $cursor = $('#dumb-cursor');
 	// URL check
 	var urlReg = /[^\/]+(?=\/$|$)/ig;
-
-	// console.log(location);
-	// console.log(urlReg);
-	// console.log(location.match(urlReg));
 
 	// History API stuff
 	var $navLi = $('nav ul li');
 	var $nav = $('header nav ul li a');
 	var $content = $('.content-container');
 	
-	var init = function(page){
+	var updateContainers = function(page){
 		console.log('Update?');
 
 		BODY.removeClass().addClass('ready');
 		$container.removeClass().addClass('container ' + page);
 
 	};
+
+	// Device check for cursor
+	var isTouchDevice = function() {
+		return 'ontouchstart' in window // works on most browsers 
+		|| navigator.maxTouchPoints; // works on IE10/11 and Surface
+	};
+
+	console.log(isTouchDevice());
 
 	$nav.on('click', function(e){
 		e.preventDefault();
@@ -39,35 +46,58 @@ jQuery(function($) {
 		var name = $this.attr('data-name');
 		var url = $this.attr('href');
 
-		$this.data("name", name);
+		$this.data('name', name);
 
 		if (e.target != window.location.href){
 
-			history.pushState({}, '', url);
+			window.history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
 			$navLi.load(url + ' nav ul li a');
 
-			init(name);
+			updateContainers(name);
+			
 		}
-		e.stopPropagation();
 	});
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
 		var url = window.location.href;
-		var name = $this.data("name");
+		var name = $this.data('name');
 
 		$content.load(url + ' .content-container > *');
 		$navLi.load(url + ' ' + ' nav ul li a');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
-			init(url.match(urlReg));
+			updateContainers(url.match(urlReg));
 		} else {
-			init('home');
+			updateContainers('home');
 		}
 
 	});
 
+	// Custom Cursor 
+	// because reasons
+	if ( !isTouchDevice() ) {
+		HTML.addClass('custom-cursor');
+
+		WINDOW.on('mousemove', function(e) {
+			$cursor.removeClass('hidden');
+			$cursor.css({
+				// 'left': e.pageX,
+				// 'top': e.pageY,
+				// 'transform': 'translate(' + e.pageX + ', ' + e.pageY + ')'
+				'transform': 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)'
+			});
+		}).on('mouseleave', function(e){
+			$cursor.addClass('hidden');
+		}).on('mouseenter', function(e){
+			$cursor.removeClass('hidden');
+		});
+	} else {
+		HTML.removeClass('custom-cursor');
+	}
+
+	// Animation
 	// Timing
 	CustomEase.create('frameAnimation', 'M0,0 C0.107,0 1,0 1,0 1,0 1,0.842 1,1'); // Literally zero transition
 	var oneFrame = 0.133; // Actually 8 frames at 60FPS
