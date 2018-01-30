@@ -48,15 +48,11 @@ jQuery(function($) {
 
 		$this.data('name', name);
 
-		if (e.target != window.location.href){
+		window.history.pushState({}, '', url);
+		$content.load(url + ' .content-container > *');
+		$navLi.load(url + ' nav ul li a');
 
-			window.history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *');
-			$navLi.load(url + ' nav ul li a');
-
-			updateContainers(name);
-			
-		}
+		updateContainers(name);
 	});
 
 	WINDOW.on('popstate', function(e){
