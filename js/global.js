@@ -29,8 +29,8 @@ jQuery(function($) {
 		BODY.removeClass().addClass('ready');
 		$container.removeClass().addClass('container ' + page);
 
-		$('nav').find('.' + page).addClass('active').removeClass('hidden');
-		$('nav').find('.' + page).siblings().removeClass('active').addClass('hidden');
+		$('nav').find('.' + page).addClass('hidden').removeClass('active');
+		$('nav').find('.' + page).siblings().removeClass('hidden').addClass('active');
 
 	};
 
