@@ -63,7 +63,6 @@ jQuery(function($) {
 		var name = $this.data('name');
 
 		$content.load(url + ' .content-container > *');
-		// $navLi.load(url + ' ' + ' nav ul li a');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
 			updateContainers(url.match(urlReg));
