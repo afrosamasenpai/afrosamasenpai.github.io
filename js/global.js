@@ -20,7 +20,7 @@ jQuery(function($) {
 
 	// History API stuff
 	var $navLi = $('nav ul li');
-	var $nav = $('header nav ul li a, .test-nav a');
+	var $nav = $('header nav ul li a');
 	var $content = $('.content-container');
 	
 	var updateContainers = function(page){
@@ -48,7 +48,7 @@ jQuery(function($) {
 
 		$this.data('name', name);
 
-		window.history.pushState({}, '', url);
+		history.pushState({}, '', url);
 		$content.load(url + ' .content-container > *');
 		$navLi.load(url + ' nav ul li a');
 
