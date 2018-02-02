@@ -39,7 +39,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$nav.on('click', function(e){
+	$nav.on('click', 'nav ul li a', function(e){
 		e.preventDefault();
 
 		var $this = $(this);
@@ -55,9 +55,7 @@ jQuery(function($) {
 
 			updateContainers(name);
 		}
-
-		e.stopPropagation();
-	}, false);
+	});
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
