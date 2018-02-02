@@ -20,7 +20,7 @@ jQuery(function($) {
 
 	// History API stuff
 	var $navLi = $('nav ul li');
-	var $nav = $('header nav ul li a');
+	var $nav = $('header nav ul li a, .test-nav a');
 	var $content = $('.content-container');
 	
 	var updateContainers = function(page){
