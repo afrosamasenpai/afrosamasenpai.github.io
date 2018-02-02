@@ -54,11 +54,9 @@ jQuery(function($) {
 			$navLi.load(url + ' nav ul li a');
 
 			updateContainers(name);
-
-			return false;
 		}
 
-		
+		return false;
 	});
 
 	WINDOW.on('popstate', function(e){
