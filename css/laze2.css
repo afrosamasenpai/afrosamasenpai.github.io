@@ -25,12 +25,6 @@ html {
 	cursor: none;
 }
 
-.hidden {
-	display: none;
-	visibility: hidden;
-	opacity: 0;
-}
-
 ::selection {
 	color: #FBCB9A;
 	background: #744594;

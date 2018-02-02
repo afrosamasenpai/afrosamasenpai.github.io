@@ -39,7 +39,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$nav.on('click', 'nav ul li a', function(e){
+	$nav.on('click', function(e){
 		e.preventDefault();
 
 		var $this = $(this);
@@ -47,14 +47,12 @@ jQuery(function($) {
 		var url = $this.attr('href');
 
 		$this.data('name', name);
-		
-		if (e.target != window.location.href) {
-			window.history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *');
-			$navLi.load(url + ' nav ul li a');
 
-			updateContainers(name);
-		}
+		window.history.pushState({}, '', url);
+		$content.load(url + ' .content-container > *');
+		$navLi.load(url + ' nav ul li a');
+
+		updateContainers(name);
 	});
 
 	WINDOW.on('popstate', function(e){
