@@ -79,9 +79,6 @@ jQuery(function($) {
 		WINDOW.on('mousemove', function(e) {
 			$cursor.removeClass('hidden');
 			$cursor.css({
-				// 'left': e.pageX,
-				// 'top': e.pageY,
-				// 'transform': 'translate(' + e.pageX + ', ' + e.pageY + ')'
 				'transform': 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)'
 			});
 		}).on('mouseleave', function(e){
