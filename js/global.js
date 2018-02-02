@@ -55,6 +55,7 @@ jQuery(function($) {
 
 			updateContainers(name);
 
+			return false;
 		}
 
 		
