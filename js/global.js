@@ -57,11 +57,8 @@ jQuery(function($) {
 		if (e.target != window.location.href) {
 
 			BODY.removeClass('screen-on').addClass('screen-off');
-
 			history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *', function(){
-				// BODY.removeClass('screen-off').addClass('screen-on');
-			});
+			$content.load(url + ' .content-container > *');
 
 			updateContainers(name);
 		}
@@ -74,17 +71,13 @@ jQuery(function($) {
 		var url = window.location.href;
 		var name = $this.data('name');
 
-		BODY.removeClass('screen-on').addClass('screen-off');
+		$content.load(url + ' .content-container > *');
 
-		$content.load(url + ' .content-container > *', function(){
-			// BODY.removeClass('screen-off').addClass('screen-on');
-
-			if ( url.match(urlReg) != 'tyronekinda.works') {
-				updateContainers(url.match(urlReg));
-			} else {
-				updateContainers('home');
-			}
-		});
+		if ( url.match(urlReg) != 'tyronekinda.works') {
+			updateContainers(url.match(urlReg));
+		} else {
+			updateContainers('home');
+		}
 
 	});
 
