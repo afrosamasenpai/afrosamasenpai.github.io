@@ -68,8 +68,6 @@ jQuery(function($) {
 		}
 	});
 
-	var current = 2;
-
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
 		var url = window.location.href;
@@ -106,7 +104,7 @@ jQuery(function($) {
 	// Draw your art at any scale. The animation is for free.
 	var donkeyKong = new FatPixels({
 		scale  : 2.4,
-		speed  : '60fps',
+		speed  : '3.72s',
 		sprite : {
 			url : 'images/breathe/bedandbreathanimation.png',
 			direction: 'x',
