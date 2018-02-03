@@ -53,19 +53,29 @@ jQuery(function($) {
 
 		$this.data('name', name);
 
+		// Make you don't constantly reload if clicking a like you're already on.
 		if (e.target != window.location.href) {
+
+			BODY.removeClass('screen-on').addClass('screen-off');
+
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
 
 			updateContainers(name);
+
+			BODY.removeClass('screen-off').addClass('screen-on');
 		}
 	});
+
+	var current = 2;
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
 		var url = window.location.href;
 		var name = $this.data('name');
 
+		BODY.removeClass('screen-on').addClass('screen-off');
+		
 		$content.load(url + ' .content-container > *');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
@@ -74,6 +84,7 @@ jQuery(function($) {
 			updateContainers('home');
 		}
 
+		BODY.removeClass('screen-off').addClass('screen-on');
 	});
 
 	// Custom Cursor 
