@@ -63,7 +63,8 @@ body {
 	height: 100vh;
 	box-sizing: border-box;
 	/*border: 20px solid #FBCB9A;*/
-	background-color:  #4F3514;
+	/*background-color:  #4F3514;*/
+	background-color: #65441a;
 	min-height: 360px;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -98,9 +99,11 @@ h2, h3 {
 }
 
 h2, h3, h4, h5, h6 {
+	color: #281D39;
 	margin: 0;
 	font-weight: 900;
 	line-height: 1;
+	/*text-shadow: 0.005em 0.005em #FBCB9A;*/
 }
 
 h2 {
