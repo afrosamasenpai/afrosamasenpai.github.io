@@ -26,7 +26,7 @@ jQuery(function($) {
 	var updateContainers = function(page){
 		console.log('Update?');
 
-		BODY.removeClass().addClass('ready screen-on');
+		BODY.removeClass().addClass('ready');
 		$container.removeClass().addClass('container ' + page);
 
 		// Keep the nav in the DOM because it borks and reloads. 
