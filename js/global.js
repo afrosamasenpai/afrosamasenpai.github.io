@@ -44,7 +44,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$$navLink.on('click', function(e){
+	$navLink.on('click', function(e){
 		e.preventDefault();
 
 		var $this = $(this);
