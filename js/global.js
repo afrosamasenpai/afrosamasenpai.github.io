@@ -19,8 +19,8 @@ jQuery(function($) {
 	var urlReg = /[^\/]+(?=\/$|$)/ig;
 
 	// History API stuff
-	var $navLi = $('nav ul li');
-	var $nav = $('header nav ul li a');
+	var $nav = $('header av ul');
+	var $navLink = $('header nav ul li a');
 	var $content = $('.content-container');
 	
 	var updateContainers = function(page){
@@ -29,8 +29,10 @@ jQuery(function($) {
 		BODY.removeClass().addClass('ready');
 		$container.removeClass().addClass('container ' + page);
 
-		$('nav').find('.' + page).addClass('hidden').removeClass('active');
-		$('nav').find('.' + page).siblings().removeClass('hidden').addClass('active');
+		// Keep the nav in the DOM because it borks and reloads. 
+		// There's also a way to have it work with it, but simple class change works.
+		// $nav.find('.' + page).addClass('hidden').removeClass('active');
+		// $nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
 	};
 
@@ -42,7 +44,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$nav.on('click', function(e){
+	$nav.on('click', navLink, function(e){
 		e.preventDefault();
 
 		var $this = $(this);
@@ -92,6 +94,7 @@ jQuery(function($) {
 	}
 
 	// Animation
+	// Maybe replace with the fatpixel thing since it does have onComplete stuff
 	// Timing
 	CustomEase.create('frameAnimation', 'M0,0 C0.107,0 1,0 1,0 1,0 1,0.842 1,1'); // Literally zero transition
 	var oneFrame = 0.133; // Actually 8 frames at 60FPS

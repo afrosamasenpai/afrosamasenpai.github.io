@@ -280,6 +280,7 @@ nav ul li a:after {
 	z-index: -1;
 	transition: .25s ease all;
 	will-change: bottom, height;
+
 }
 
 nav ul li a:hover,
@@ -290,8 +291,12 @@ nav ul li a:active {
 nav ul li a:hover:after, 
 nav ul li a:active:after, 
 nav ul li a:visited:after {
-	bottom: 0;
 	height: 100%;
+	bottom: 0;
+	/*animation-name: navHover;*/
+    animation-duration: .35s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
 }
 
 /* BEGIN Container */
@@ -503,16 +508,16 @@ body:not(.ready) .sleepy-container button{
 
 @keyframes navHover{
 	0% {
-		opacity: 0;
+		bottom: 4px;
+		height: 10%;
 	}
-	20% {
-
-	}
-	30% {
-
+	70% {
+		bottom: 0;
+		height: 10%;
 	}
 	100% {
-		opacity: 1;
+		bottom: 0;
+		height: 100%;
 	}
 }
 
