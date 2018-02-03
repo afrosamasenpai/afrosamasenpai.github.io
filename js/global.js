@@ -26,7 +26,9 @@ jQuery(function($) {
 	var updateContainers = function(page, url){
 		console.log('Update?');
 
+		// Begin screen off CRT transition
 		BODY.removeClass().addClass('ready screen-off');
+		// Update container class
 		$container.removeClass().addClass('container ' + page);
 
 		// Keep the nav in the DOM because it borks and reloads. 
@@ -34,22 +36,21 @@ jQuery(function($) {
 		$nav.find('.' + page).addClass('hidden').removeClass('active');
 		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
+		// Change content on a delay, just to get rid of the weird occasional pop in
 		setTimeout(function(){
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
-
+			// Turn on that screen!
 			BODY.removeClass('screen-off').addClass('screen-on');
 		}, 1000);
 
 	};
 
-	// Device check for cursor
+	// Device check for custom cursor, if uses touch, ignore
 	var isTouchDevice = function() {
 		return 'ontouchstart' in window // works on most browsers 
 		|| navigator.maxTouchPoints; // works on IE10/11 and Surface
 	};
-
-	console.log(isTouchDevice());
 
 	$navLink.on('click', function(e){
 		e.preventDefault();
@@ -62,7 +63,6 @@ jQuery(function($) {
 
 		// Make you don't constantly reload if clicking a like you're already on.
 		if (e.target != window.location.href) {
-
 			updateContainers(name, url);
 		}
 	});
@@ -86,22 +86,22 @@ jQuery(function($) {
 
 	// Custom Cursor 
 	// because reasons
-	if ( !isTouchDevice() ) {
-		HTML.addClass('custom-cursor');
+	// if ( !isTouchDevice() ) {
+	// 	HTML.addClass('custom-cursor');
 
-		WINDOW.on('mousemove', function(e) {
-			$cursor.removeClass('hidden');
-			$cursor.css({
-				'transform': 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)'
-			});
-		}).on('mouseleave', function(e){
-			$cursor.addClass('hidden');
-		}).on('mouseenter', function(e){
-			$cursor.removeClass('hidden');
-		});
-	} else {
-		HTML.removeClass('custom-cursor');
-	}
+	// 	WINDOW.on('mousemove', function(e) {
+	// 		$cursor.removeClass('hidden');
+	// 		$cursor.css({
+	// 			'transform': 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)'
+	// 		});
+	// 	}).on('mouseleave', function(e){
+	// 		$cursor.addClass('hidden');
+	// 	}).on('mouseenter', function(e){
+	// 		$cursor.removeClass('hidden');
+	// 	});
+	// } else {
+	// 	HTML.removeClass('custom-cursor');
+	// }
 
 	// Animation
 	// Maybe replace with the fatpixel thing since it does have onComplete stuff
