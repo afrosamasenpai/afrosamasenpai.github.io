@@ -31,8 +31,8 @@ jQuery(function($) {
 
 		// Keep the nav in the DOM because it borks and reloads. 
 		// There's also a way to have it work with it, but simple class change works.
-		// $nav.find('.' + page).addClass('hidden').removeClass('active');
-		// $nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
+		$nav.find('.' + page).addClass('hidden').removeClass('active');
+		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
 	};
 
@@ -44,7 +44,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$nav.on('click', $navLink, function(e){
+	$navLink.on('click', function(e){
 		e.preventDefault();
 
 		var $this = $(this);
@@ -57,9 +57,7 @@ jQuery(function($) {
 		$content.load(url + ' .content-container > *');
 
 		updateContainers(name);
-
-		e.stopPropagation();
-	}, false);
+	});
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
