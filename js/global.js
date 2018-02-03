@@ -31,8 +31,8 @@ jQuery(function($) {
 
 		// Keep the nav in the DOM because it borks and reloads. 
 		// There's also a way to have it work with it, but simple class change works.
-		// $nav.find('.' + page).addClass('hidden').removeClass('active');
-		// $nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
+		$nav.find('.' + page).addClass('hidden').removeClass('active');
+		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
 	};
 
@@ -44,7 +44,7 @@ jQuery(function($) {
 
 	console.log(isTouchDevice());
 
-	$nav.on('click', function(e){
+	$$navLink.on('click', function(e){
 		e.preventDefault();
 
 		var $this = $(this);
@@ -56,13 +56,10 @@ jQuery(function($) {
 		if (e.target != window.location.href) {
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
-			$nav.load(url + ' nav ul li');
 
 			updateContainers(name);
 		}
-
-		e.stopPropagation();
-	}, false);
+	});
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
@@ -70,7 +67,6 @@ jQuery(function($) {
 		var name = $this.data('name');
 
 		$content.load(url + ' .content-container > *');
-		$nav.load(url + ' nav ul li');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
 			updateContainers(url.match(urlReg));
