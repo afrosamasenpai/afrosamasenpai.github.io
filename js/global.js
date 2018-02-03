@@ -37,7 +37,7 @@ jQuery(function($) {
 			// There's also a way to have it work with it, but simple class change works.
 			$nav.find('.' + page).addClass('hidden').removeClass('active');
 			$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
-			
+
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
 			// Turn on that screen!
@@ -52,6 +52,7 @@ jQuery(function($) {
 		|| navigator.maxTouchPoints; // works on IE10/11 and Surface
 	};
 
+	// Header nav click event
 	$navLink.on('click', function(e){
 		e.preventDefault();
 
