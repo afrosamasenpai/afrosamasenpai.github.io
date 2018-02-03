@@ -210,8 +210,11 @@ button:hover, .button:hover{
 	animation-fill-mode: forwards;
 }
 
-.screen-off .container{
+.screen-off {
 	background: #111;
+}
+
+.screen-off .container{
 	animation: screenOff 0.55s cubic-bezier(0.23, 1, 0.32, 1);
 	animation-fill-mode: forwards;
 }
