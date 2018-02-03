@@ -59,11 +59,11 @@ jQuery(function($) {
 			BODY.removeClass('screen-on').addClass('screen-off');
 
 			history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *');
+			$content.load(url + ' .content-container > *', function(){
+				BODY.removeClass('screen-off').addClass('screen-on');
+			});
 
 			updateContainers(name);
-
-			BODY.removeClass('screen-off').addClass('screen-on');
 		}
 	});
 
@@ -75,16 +75,17 @@ jQuery(function($) {
 		var name = $this.data('name');
 
 		BODY.removeClass('screen-on').addClass('screen-off');
-		
-		$content.load(url + ' .content-container > *');
 
-		if ( url.match(urlReg) != 'tyronekinda.works') {
-			updateContainers(url.match(urlReg));
-		} else {
-			updateContainers('home');
-		}
+		$content.load(url + ' .content-container > *', function(){
+			BODY.removeClass('screen-off').addClass('screen-on');
 
-		BODY.removeClass('screen-off').addClass('screen-on');
+			if ( url.match(urlReg) != 'tyronekinda.works') {
+				updateContainers(url.match(urlReg));
+			} else {
+				updateContainers('home');
+			}
+		});
+
 	});
 
 	// Custom Cursor 
