@@ -23,7 +23,7 @@ jQuery(function($) {
 	var $navLink = $('header nav ul li a');
 	var $content = $('.content-container');
 	
-	var updateContainers = function(page){
+	var updateContainers = function(page, url){
 		console.log('Update?');
 
 		BODY.removeClass().addClass('ready screen-off');
@@ -35,6 +35,9 @@ jQuery(function($) {
 		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
 		setTimeout(function(){
+			history.pushState({}, '', url);
+			$content.load(url + ' .content-container > *');
+
 			BODY.removeClass('screen-off').addClass('screen-on');
 		}, 1000);
 
@@ -60,10 +63,7 @@ jQuery(function($) {
 		// Make you don't constantly reload if clicking a like you're already on.
 		if (e.target != window.location.href) {
 
-			history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *');
-
-			updateContainers(name);
+			updateContainers(name, url);
 		}
 	});
 
@@ -77,9 +77,9 @@ jQuery(function($) {
 		$content.load(url + ' .content-container > *');
 
 		if ( url.match(urlReg) != 'tyronekinda.works') {
-			updateContainers(url.match(urlReg));
+			updateContainers(url.match(urlReg), url);
 		} else {
-			updateContainers('home');
+			updateContainers('home', url);
 		}
 
 	});
