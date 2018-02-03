@@ -110,7 +110,7 @@ jQuery(function($) {
 		sprite : {
 			url : 'images/breathe/bedandbreathanimation.png',
 			direction: 'x',
-			count : 4,
+			count : 8,
 		}
 	});
 	donkeyKong.drawWithTarget(document.getElementById('animation-container'));
