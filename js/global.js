@@ -106,7 +106,7 @@ jQuery(function($) {
 	// Draw your art at any scale. The animation is for free.
 	var donkeyKong = new FatPixels({
 		scale  : 2.4,
-		speed  : '16fps',
+		speed  : '60fps',
 		sprite : {
 			url : 'images/breathe/bedandbreathanimation.png',
 			direction: 'x',
