@@ -57,7 +57,9 @@ jQuery(function($) {
 		$content.load(url + ' .content-container > *');
 
 		updateContainers(name);
-	});
+
+		e.stopPropagation();
+	}, false);
 
 	WINDOW.on('popstate', function(e){
 		var $this = $(this);
