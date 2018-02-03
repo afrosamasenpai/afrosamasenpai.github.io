@@ -26,7 +26,7 @@ jQuery(function($) {
 	var updateContainers = function(page){
 		console.log('Update?');
 
-		BODY.removeClass().addClass('ready');
+		BODY.removeClass().addClass('ready screen-on');
 		$container.removeClass().addClass('container ' + page);
 
 		// Keep the nav in the DOM because it borks and reloads. 
@@ -56,7 +56,8 @@ jQuery(function($) {
 		// Make you don't constantly reload if clicking a like you're already on.
 		if (e.target != window.location.href) {
 
-			BODY.removeClass('screen-on').addClass('screen-off');
+			BODY.addClass('screen-off');
+
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
 
@@ -70,6 +71,8 @@ jQuery(function($) {
 		var $this = $(this);
 		var url = window.location.href;
 		var name = $this.data('name');
+
+		BODY.addClass('screen-off');
 
 		$content.load(url + ' .content-container > *');
 
