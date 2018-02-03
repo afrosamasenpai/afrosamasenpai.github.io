@@ -60,7 +60,7 @@ jQuery(function($) {
 
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *', function(){
-				BODY.removeClass('screen-off').addClass('screen-on');
+				// BODY.removeClass('screen-off').addClass('screen-on');
 			});
 
 			updateContainers(name);
@@ -77,7 +77,7 @@ jQuery(function($) {
 		BODY.removeClass('screen-on').addClass('screen-off');
 
 		$content.load(url + ' .content-container > *', function(){
-			BODY.removeClass('screen-off').addClass('screen-on');
+			// BODY.removeClass('screen-off').addClass('screen-on');
 
 			if ( url.match(urlReg) != 'tyronekinda.works') {
 				updateContainers(url.match(urlReg));
