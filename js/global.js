@@ -104,28 +104,26 @@ jQuery(function($) {
 
 	// Animation
 	// Draw your art at any scale. The animation is for free.
-	// var donkeyKong = new FatPixels({
-	// 	scale  : 2.0,
-	// 	speed  : '16fps',
-	// 	sprite : {
-	// 		url : 'images/breathe/bedandbreathanimation.png',
-	// 		direction: 'x',
-	// 		count : 4,
-	// 	}
-	// });
-
-	// jQuery is also supported, see below.
-	// donkeyKong.drawWithTarget(document.getElementById('animation-container'));
-
-	$('.animation-container').FatPixels({
+	var donkeyKong = new FatPixels({
 		scale  : 2.4,
-		speed: '16fps'
+		speed  : '16fps',
 		sprite : {
 			url : 'images/breathe/bedandbreathanimation.png',
 			direction: 'x',
-			count : 8,
+			count : 4,
 		}
 	});
+	donkeyKong.drawWithTarget(document.getElementById('animation-container'));
+
+	// $('.animation-container').FatPixels({
+	// 	scale  : 2.4,
+	// 	speed: '16fps'
+	// 	sprite : {
+	// 		url : 'images/breathe/bedandbreathanimation.png',
+	// 		direction: 'x',
+	// 		count : 8,
+	// 	}
+	// });
 
 	// Maybe replace with the fatpixel thing since it does have onComplete stuff
 	// Timing
