@@ -206,7 +206,7 @@ button:hover, .button:hover{
 }
 
 .screen-on .container {
-	animation: screenOn 4s linear;;
+	animation: screenOn 2.4s linear;;
 	animation-fill-mode: forwards;
 }
 
