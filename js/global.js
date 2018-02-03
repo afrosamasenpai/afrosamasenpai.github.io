@@ -34,6 +34,10 @@ jQuery(function($) {
 		$nav.find('.' + page).addClass('hidden').removeClass('active');
 		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
 
+		setTimeout(function(){
+			BODY.removeClass('screen-off').addClass('screen-on');
+		}, 1000);
+
 	};
 
 	// Device check for cursor
