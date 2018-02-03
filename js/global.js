@@ -31,13 +31,13 @@ jQuery(function($) {
 		// Update container class
 		$container.removeClass().addClass('container ' + page);
 
-		// Keep the nav in the DOM because it borks and reloads. 
-		// There's also a way to have it work with it, but simple class change works.
-		$nav.find('.' + page).addClass('hidden').removeClass('active');
-		$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
-
 		// Change content on a delay, just to get rid of the weird occasional pop in
 		setTimeout(function(){
+			// Keep the nav in the DOM because it borks and reloads. 
+			// There's also a way to have it work with it, but simple class change works.
+			$nav.find('.' + page).addClass('hidden').removeClass('active');
+			$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
+			
 			history.pushState({}, '', url);
 			$content.load(url + ' .content-container > *');
 			// Turn on that screen!
