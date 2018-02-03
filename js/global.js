@@ -114,16 +114,16 @@ jQuery(function($) {
 	// 	}
 	// });
 
-	// // jQuery is also supported, see below.
+	// jQuery is also supported, see below.
 	// donkeyKong.drawWithTarget(document.getElementById('animation-container'));
 
 	$('.animation-container').FatPixels({
-		scale  : 2,
-		speed: '8fps'
+		scale  : 2.4,
+		speed: '16fps'
 		sprite : {
 			url : 'images/breathe/bedandbreathanimation.png',
 			direction: 'x',
-			count : 4,
+			count : 8,
 		}
 	});
 
