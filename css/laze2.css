@@ -314,24 +314,20 @@ nav ul li a {
 	letter-spacing: 0;
 	color: #FBCB9A;
 	text-decoration: none;
-	display: inline;
+	display: inline-block;
 	position: relative;	
 	transition: .4s ease color;
 	will-change: color;
 }
 
-nav ul li a:after {
-	content: '';
-	width: 110%;
-	height: 10%;
-	background-color: #89c4f4;
-	display: block;
-	position: absolute;
-	left: -5%;
-	bottom: 4px;
-	z-index: -1;
-	will-change: bottom, height;
-	transition: height .2s .35s, bottom .2s;
+nav ul li a .link-bar {
+    height: 10%;
+    width: 110%;
+    background: #89c4f4;
+    position: absolute;
+    bottom: 4px;
+    left: -5%;
+    z-index: -10;
 }
 
 nav ul li a:hover,
@@ -339,12 +335,12 @@ nav ul li a:active {
 	color: #281D39;
 }
 
-nav ul li a:hover:after, 
+/*nav ul li a:hover:after, 
 nav ul li a:active:after, 
 nav ul li a:visited:after {
 	height: 100%;
 	bottom: 0;
-}
+}*/
 /* END Nav */
 /* END Header */
 
@@ -381,12 +377,6 @@ nav ul li a:visited:after {
 
 .sleepy-container button {
     margin-top: 16px;
-}
-
-.container:not(.home) .sleepy-container {
-	display: none;
-	visibility: hidden;
-	opacity: 0;
 }
 
 /* BEGIN Content */
@@ -439,6 +429,13 @@ nav ul li a:visited:after {
 /* END Content */
 
 /* BEGIN Animation Container */
+.container:not(.home) .animation-container,
+.container:not(.home) .sleepy-container {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+}
+
 .animation-container {
 	width: 100%;
 	max-width: 280px;
@@ -469,9 +466,6 @@ nav ul li a:visited:after {
 	opacity: 0;
 }
 
-.container:not(.home) .animation-container {
-	opacity: 0;
-}
 /* END Animation Container */
 /* BEGIN Footer */
 footer {

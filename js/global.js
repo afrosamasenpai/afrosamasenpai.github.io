@@ -28,11 +28,11 @@ jQuery(function($) {
 
 		// Begin screen off CRT transition
 		BODY.removeClass().addClass('ready screen-off');
-		// Update container class
-		$container.removeClass().addClass('container ' + page);
 
 		// Change content on a delay, just to get rid of the weird occasional pop in
 		setTimeout(function(){
+			// Update container class
+			$container.removeClass().addClass('container ' + page);
 			// Keep the nav in the DOM because it borks and reloads. 
 			// There's also a way to have it work with it, but simple class change works.
 			$nav.find('.' + page).addClass('hidden').removeClass('active');
@@ -66,9 +66,13 @@ jQuery(function($) {
 		if (e.target != window.location.href) {
 			updateContainers(name, url);
 		}
+	}).on('mouseenter', function(){
+		animateButton('0px', '100%');
+	}).on('mouseleave', function(){
+		animateButton('4px', '10%')
 	});
 
-	WINDOW.on('popstate', function(e){
+	WINDOW.on('popstate', function(){
 		var $this = $(this);
 		var url = window.location.href;
 		var name = $this.data('name');
@@ -106,6 +110,20 @@ jQuery(function($) {
 	anime.easings['frameAnimation'] = function() {
 		return 0;
 	}
+
+	var buttonEl = $('nav ul li a');
+
+	var animateButton = function(bottom, height) {
+	  anime.remove('nav ul li a .link-bar');
+	  anime({
+	    targets: 'nav ul li a .link-bar',
+	    bottom: bottom,
+	    height: height,
+	    duration: 660,
+	    elasticity: 300
+	  });
+	}
+
 	var breathAnimation = anime({
 		targets: '.breath-animation svg',
 		viewBox: [ 
