@@ -101,6 +101,10 @@ jQuery(function($) {
 	// }
 
 	// Animation
+	// var IETEST = anime({
+	// 	targets: '.container.home footer',
+	// 	filter: brightness(30);
+	// })
 	// Timing
 	var oneFrame = 133; // Actually 8 frames at 60FPS, in milliseconds
 	anime.easings['frameAnimation'] = function() {
