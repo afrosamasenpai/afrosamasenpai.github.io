@@ -101,16 +101,11 @@ jQuery(function($) {
 	// }
 
 	// Animation
-	// var IETEST = anime({
-	// 	targets: '.container.home footer',
-	// 	filter: brightness(30);
-	// })
 	// Timing
 	var oneFrame = 133; // Actually 8 frames at 60FPS, in milliseconds
 	anime.easings['frameAnimation'] = function() {
 		return 0;
 	}
-	// Animation
 	var breathAnimation = anime({
 		targets: '.breath-animation svg',
 		viewBox: [ 
@@ -122,9 +117,6 @@ jQuery(function($) {
 			{ value: '156 0 52 35', duration: (oneFrame * 5) }, 
 		],
 		duration: ((oneFrame * 4) + (oneFrame * 5) + (oneFrame * 5)),
-		// easing: 'frameAnimation',
-		// loop: 6,
-		// direction: 'alternate'
 		easing: 'frameAnimation',
 		direction: 'alternate',
 		loop: 6,
@@ -164,48 +156,4 @@ jQuery(function($) {
 			breathAnimation.restart();
 		}
 	});
-
-	// Maybe replace with the fatpixel thing since it does have onComplete stuff
-	// Timing
-	// CustomEase.create('frameAnimation', 'M0,0 C0.107,0 1,0 1,0 1,0 1,0.842 1,1'); // Literally zero transition
-	
-
-	// // Animation Timelines
-	// // Breath Animation
-	// var animationBreath = new TimelineMax({ repeat: 3, yoyo: true, onComplete: 
-	// 	(function(){
-	// 		$breathAnimationContainer.addClass('hidden');
-	// 		$wakeupAnimationContainer.removeClass('hidden');
-	// 		animationWakeup.play();
-	// 	})
-	// });
-	// var animationWakeup = new TimelineMax({ paused: true, repeat: 1, yoyo: true, onComplete: 
-	// 	(function(){
-	// 		BODY.addClass('ready');
-	// 		$breathAnimationContainer.removeClass('hidden');
-	// 		$wakeupAnimationContainer.addClass('hidden');
-	// 		animationBreath.play(0);
-	// 		// animationBreath.updateTo({ paused: true, repeat: -1, yoyo: true});
-	// 	})
-	//  });
-
-	// animationBreath
-	// 	.to($breathAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'0 0 52 35'}, ease: 'frameAnimation'})
-	// 	.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'0 0 52 35'}, ease: 'frameAnimation'})
-	// 	.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'52 0 52 35'}, ease: 'frameAnimation'})
-	// 	.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'104 0 52 35'}, ease: 'frameAnimation'})
-	// 	.to($breathAnimationSVG, oneFrame, {attr:{ viewBox:'156 0 52 35'}, ease: 'frameAnimation' })
-	// 	.to($breathAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'156 0 52 35'}, ease: 'frameAnimation' });
-
-	// animationWakeup
-	// 	.to($wakeupAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'0 0 52 37'}, ease: 'frameAnimation'})
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'0 0 52 37'}, ease: 'frameAnimation'})
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'52 0 52 37'}, ease: 'frameAnimation'})
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'104 0 52 37'}, ease: 'frameAnimation'})
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'156 0 52 37'}, ease: 'frameAnimation' })
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'208 0 52 37'}, ease: 'frameAnimation' })
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'260 0 52 37'}, ease: 'frameAnimation' })
-	// 	.to($wakeupAnimationSVG, oneFrame, {attr:{ viewBox:'312 0 52 37'}, ease: 'frameAnimation' })
-	// 	.to($wakeupAnimationSVG, (oneFrame * 5), {attr:{ viewBox:'312 0 52 37'}, ease: 'frameAnimation' });
-
 });
