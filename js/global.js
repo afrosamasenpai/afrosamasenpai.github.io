@@ -30,6 +30,7 @@ jQuery(function($) {
 		// Change content on a delay, just to get rid of the weird occasional pop in
 		setTimeout(function(){
 			// Update container class
+			HTML.removeClass().addClass('page');
 			$container.removeClass().addClass('container ' + page);
 			// Keep the nav in the DOM because it borks and reloads. 
 			// There's also a way to have it work with it, but simple class change works.
@@ -50,23 +51,26 @@ jQuery(function($) {
 	};
 
 	// Header nav click event
-	$navLink.on('click', function(e){
-		e.preventDefault();
-
+	$navLink.each(function(){
 		var $this = $(this);
-		var name = $this.attr('data-name');
-		var url = $this.attr('href');
 
-		$this.data('name', name);
+		$this.on('click', function(e){
+			e.preventDefault();
 
-		// Make you don't constantly reload if clicking a link you're already on.
-		if (e.target != window.location.href) {
-			updateContainers(name, url);
-		}
-	}).on('mouseenter touchstart', function(){
-		navHover('0px', '100%');
-	}).on('mouseleave touchend', function(){
-		navHover('4px', '10%')
+			var name = $this.attr('data-name');
+			var url = $this.attr('href');
+
+			$this.data('name', name);
+
+			// Make you don't constantly reload if clicking a link you're already on.
+			if (e.target != window.location.href) {
+				updateContainers(name, url);
+			}
+		}).on('mouseenter touchstart', function(){
+			navHover('0px', '100%');
+		}).on('mouseleave touchend', function(){
+			navHover('4px', '10%')
+		});
 	});
 
 	WINDOW.on('popstate', function(){
@@ -107,14 +111,14 @@ jQuery(function($) {
 	}
 
 	var navHover = function(bottom, height) {
-	  anime.remove('nav ul li a .link-bar');
-	  anime({
-	    targets: 'nav ul li a .link-bar',
-	    bottom: bottom,
-	    height: height,
-	    duration: 660,
-	    elasticity: 300
-	  });
+		anime.remove('.active .link-bar');
+		anime({
+			targets: '.active .link-bar',
+			bottom: bottom,
+			height: height,
+			duration: 660,
+			elasticity: 300
+		});
 	}
 
 	var breathAnimation = anime({

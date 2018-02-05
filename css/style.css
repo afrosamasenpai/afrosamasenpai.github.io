@@ -55,6 +55,15 @@ html {
 }
 /* END Scroll bar */
 
+body, .container {
+	height: 100%;
+	min-height: 100%;
+}
+
+html.home {
+	height: 100%;
+}
+
 body {
 	font-family: 'Titillium Web', sans-serif;
 	font-weight: 400;
@@ -174,14 +183,19 @@ ul li, ol li {
 
 /* BEGIN Container */
 .container {
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	width: 100%;
 	box-sizing: border-box;
 	padding: 0 16px;
 }
 
-.container.home {
+.container.home{
+	height: 100%;
+}
 
+.container:not(.home){
+	height: 100%;
+	min-height: 100vh;
 }
 
 .screen-on .container{
@@ -465,19 +479,12 @@ body:not(.ready) .sleepy-container button{
 	p, ul, ol {
 		font-size: 1rem;
 	}
+}
 
-	/* BEGIN Container */
-	.container {
-		padding: 16px;
+@media screen and (min-width: 813px) {
+	.home.container {
+		min-height: 100vh;
 	}
-
-	.logo-container {
-		position: relative;
-		margin: 0 auto;
-		max-width: 230px;
-		width: 100%;
-	}
-
 }
 
 @media screen and (max-width: 812px), screen  and (max-height: 889px) {
@@ -518,6 +525,11 @@ body:not(.ready) .sleepy-container button{
 	.content .right-column {
 		width: 100%;
 		padding: 0;
+	}
+
+	.content .right-column p, 
+	.content .right-column ul li {
+		font-size: 1em;
 	}
 
 	/* BEGIN Footer */
