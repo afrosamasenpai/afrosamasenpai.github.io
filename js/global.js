@@ -66,9 +66,9 @@ jQuery(function($) {
 			if (e.target != window.location.href) {
 				updateContainers(name, url);
 			}
-		}).on('mouseenter touchstart', function(){
+		}).on('mouseenter', function(){
 			navHover('0px', '100%');
-		}).on('mouseleave touchend', function(){
+		}).on('mouseleave touchstart touchend', function(){
 			navHover('4px', '10%')
 		});
 	});
