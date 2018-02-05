@@ -204,9 +204,8 @@ header {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
-	padding: 8px 48px;
+	padding: 8px 0;
 	position: relative;
-	z-index: 10;
 }
 
 header, .content-container, footer {
@@ -216,7 +215,7 @@ header, .content-container, footer {
 /* BEGIN Nav */
 nav ul li {
 	display: inline-block;
-	margin: 4px 16px;
+	margin: 4px 0px;
 }
 
 nav ul li a {
@@ -470,10 +469,6 @@ body:not(.ready) .sleepy-container button{
 	/* BEGIN Container */
 	.container {
 		padding: 16px;
-	}
-
-	header {
-		padding: 8px 16px;
 	}
 
 	.logo-container {
