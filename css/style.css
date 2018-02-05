@@ -557,6 +557,7 @@ body:not(.ready) .sleepy-container button{
 
 	footer .footer-logo .logo-container{
 		transform: scale(0.7);
+		text-align: center;
 	}
 
 	footer .footer-email{
