@@ -62,14 +62,14 @@ jQuery(function($) {
 
 		$this.data('name', name);
 
-		// Make you don't constantly reload if clicking a like you're already on.
+		// Make you don't constantly reload if clicking a link you're already on.
 		if (e.target != window.location.href) {
 			updateContainers(name, url);
 		}
-	}).on('mouseenter', function(){
-		animateButton('0px', '100%');
-	}).on('mouseleave', function(){
-		animateButton('4px', '10%')
+	}).on('mouseenter touchstart', function(){
+		navHover('0px', '100%');
+	}).on('mouseleave touchend', function(){
+		navHover('4px', '10%')
 	});
 
 	WINDOW.on('popstate', function(){
@@ -113,7 +113,7 @@ jQuery(function($) {
 
 	var buttonEl = $('nav ul li a');
 
-	var animateButton = function(bottom, height) {
+	var navHover = function(bottom, height) {
 	  anime.remove('nav ul li a .link-bar');
 	  anime({
 	    targets: 'nav ul li a .link-bar',
