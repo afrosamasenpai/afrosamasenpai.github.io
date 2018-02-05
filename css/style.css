@@ -43,7 +43,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: #281D39; 
 }
  
 ::-webkit-scrollbar-thumb {
@@ -209,6 +209,10 @@ header {
 	z-index: 10;
 }
 
+header, .content-container, footer {
+    z-index: 10;
+}
+
 /* BEGIN Nav */
 nav ul li {
 	display: inline-block;
@@ -247,6 +251,7 @@ nav ul li a:active {
 /* BEGIN Container */
 .background-container{
 	position: absolute;
+	z-index: -10;
 	top: 0;
 	left: 0;
 	height: 100%;
