@@ -24,8 +24,6 @@ jQuery(function($) {
 	var $content = $('.content-container');
 	
 	var updateContainers = function(page, url){
-		console.log('Update?');
-
 		// Begin screen off CRT transition
 		BODY.removeClass().addClass('ready screen-off');
 
@@ -43,7 +41,6 @@ jQuery(function($) {
 			// Turn on that screen!
 			BODY.removeClass('screen-off').addClass('screen-on');
 		}, 1000);
-
 	};
 
 	// Device check for custom cursor, if uses touch, ignore
@@ -82,14 +79,12 @@ jQuery(function($) {
 		} else {
 			updateContainers('home', url);
 		}
-
 	});
 
 	// Custom Cursor 
 	// because reasons
 	// if ( !isTouchDevice() ) {
 	// 	HTML.addClass('custom-cursor');
-
 	// 	WINDOW.on('mousemove', function(e) {
 	// 		$cursor.removeClass('hidden');
 	// 		$cursor.css({
@@ -110,8 +105,6 @@ jQuery(function($) {
 	anime.easings['frameAnimation'] = function() {
 		return 0;
 	}
-
-	var buttonEl = $('nav ul li a');
 
 	var navHover = function(bottom, height) {
 	  anime.remove('nav ul li a .link-bar');
@@ -146,7 +139,6 @@ jQuery(function($) {
 				$wakeupAnimationContainer.removeClass('hidden');
 				wakeupAnimation.play();
 			}
-			
 		}
 	});
 
