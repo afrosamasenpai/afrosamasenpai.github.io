@@ -66,11 +66,15 @@ jQuery(function($) {
 			if (e.target != window.location.href) {
 				updateContainers(name, url);
 			}
-		}).on('mouseenter', function(){
-			navHover('0px', '100%');
-		}).on('mouseleave touchstart touchend', function(){
-			navHover('4px', '10%')
 		});
+
+		if (!isTouchDevice){
+			$this.on('mouseenter', function(){
+				navHover('0px', '100%');
+			}).on('mouseleave touchstart touchend', function(){
+				navHover('4px', '10%')
+			});
+		}
 	});
 
 	WINDOW.on('popstate', function(){
