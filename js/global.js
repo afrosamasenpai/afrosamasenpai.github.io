@@ -30,7 +30,7 @@ jQuery(function($) {
 		// Change content on a delay, just to get rid of the weird occasional pop in
 		setTimeout(function(){
 			// Update container class
-			HTML.removeClass().addClass('page');
+			HTML.removeClass().addClass(page);
 			$container.removeClass().addClass('container ' + page);
 			// Keep the nav in the DOM because it borks and reloads. 
 			// There's also a way to have it work with it, but simple class change works.
