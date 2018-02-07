@@ -363,18 +363,13 @@ nav ul li a:active {
 	position: absolute;
 	transition: .5s all ease;
 	overflow: hidden;
-	transform: translateY(-90px);
-	height: 200px;
-	display: flex;
-	align-content: center;
-	justify-content: center;
+	transform: translateY(-130px)
 }
 
 .animation-container > * {
 	width: 100%;
-	max-width: 280px;
 	height: 0;
-	padding-bottom: 72%;
+	padding-bottom: 100%;
 }
 
 .animation-container > * svg {
@@ -383,6 +378,7 @@ nav ul li a:active {
 	text-align: center;
 	position: absolute;
 	bottom: 0;
+	left: 0;
 	padding-top: 16px;
 	overflow: visible;
 }
