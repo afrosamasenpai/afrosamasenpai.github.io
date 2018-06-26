@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vortex Re-Write</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<!-- CSS Normalize -->
+	<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/4.1.1/normalize.css">
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300,900,900italic,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+	<!-- Icons -->
+	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Greensock Dump -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
+	<!-- Scroll Magic -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/jquery.ScrollMagic.min.js"></script>
+	<!-- Select2 -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	<!-- EnquireJS -->
+	<script src="js/enquire.min.js" type="text/javascript"></script>
+	<!-- Vortex JS -->
+	<script src="js/scripts.js"></script>
+	<!-- Vortex CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="section-topic">
+
+	<!-- BEGIN: Container -->
+	<div id="container">
+
+		<div class="header-space"></div>
+
+		<!-- BEGIN: Header -->
+		<header id="header" class="clear">
+
+			<div class="header-left float-left">
+
+				<!-- BEGIN: Logo -->
+				<div id="logo">
+					<a href="#" title="Back to home">
+						<h1>Dragonball Vortex</h1>
+						<!-- 
+						<svg>
+						<object type="image/svg+xml" data="logo.svg" class="svg">
+							Fallback goes here 
+						</object>
+						</svg> -->
+
+						<svg width="49px" height="44px" viewBox="0 9 49 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <defs></defs>
+						    <g id="Inverse-Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 9.000000)">
+						        <path d="M43.95195,1.65488889 L36.10285,18.1091429 L43.2523,16.6323492 L33.87125,23.937746 L34.17645,24.5760952 L37.10105,25.0408889 L34.9524,27.0743175 L35.41335,29.9929841 L32.8083,28.5811429 L35.6314,36.7766667 L28.8533,32.6092381 L24.4104,40.8543492 L19.99095,32.6092381 L13.21215,36.7766667 L15.77415,29.339619 L14.3773,28.5825397 L11.73725,29.9213968 L12.27765,27.0163492 L10.18535,24.9253016 L13.1215,24.5404762 L13.8691,23.0786984 L5.5902,16.632 L12.74,18.1087937 L4.8916,1.65453968 C6.342,1.8092381 12.47715,2.47831746 15.0521,2.98536508 C17.8612,3.53955556 18.45515,5.2527619 18.48665,5.34530159 L22.9411,14.9173968 L24.42125,10.6486984 L25.9014,14.9173968 L30.36355,5.32539683 C30.38735,5.2527619 30.9813,3.53955556 33.79075,2.98536508 C36.3657,2.47866667 42.50155,1.8095873 43.95195,1.65488889 L43.95195,1.65488889 Z M46.2917,0 L43.80285,0.265746032 C42.0455,0.453269841 36.1109,1.10488889 33.51985,1.61507937 C30.27185,2.25552381 29.28065,4.25473016 29.07205,4.78377778 L26.0911,11.1917143 L25.7446,10.1922857 L24.4216,6.37650794 L23.09825,10.1919365 L22.7514,11.1924127 L19.78025,4.80787302 C19.558,4.23238095 18.5703,2.25552381 15.3237,1.61507937 C12.7309,1.10488889 6.79735,0.452920635 5.0407,0.265746032 L2.5522,0 L3.62775,2.2548254 L10.2655,16.1713968 L5.8744,15.2641587 L7.10542736e-15,14.0506667 L4.7292,17.7330476 L11.872,23.2952063 L10.00335,23.54 L7.1904,23.9084127 L9.19485,25.9118095 L10.76705,27.4828889 L10.36105,29.666127 L9.8434,32.4489524 L12.37215,31.1663175 L13.9384,30.3722222 L11.88845,36.3226984 L10.61725,40.0127619 L13.9468,37.9657143 L19.4586,34.5773651 L23.1763,41.5133016 L24.4076,43.810381 L25.6438,41.5160952 L29.38355,34.575619 L34.89745,37.9657143 L38.22735,40.0127619 L36.95615,36.3226984 L35.3024,31.5221587 L37.2386,32.5711746 L36.79725,29.7754286 L36.45075,27.5824127 L38.06565,26.0542857 L40.12365,24.1064127 L37.3226,23.6615238 L36.64185,23.5532698 L44.1154,17.7333968 L48.84425,14.0510159 L42.9702,15.2645079 L38.57945,16.171746 L45.2179,2.2551746 L46.2917,0 L46.2917,0 L46.2917,0 Z" id="Shape-Copy" fill="#EB991E"></path>
+						        <path d="M22.26035,16.3767302 L17.7611,6.60977778 C17.7611,6.60977778 17.02225,4.99749206 14.9688,4.66993651 C12.91535,4.34203175 7.38395,3.84126984 7.38395,3.84126984 L7.3857,3.8444127 C7.3647,3.84266667 7.35,3.84126984 7.35,3.84126984 L15.0528,18.8665714 L20.776,19.5077143 L20.77775,19.5042222 L20.80995,19.5077143 L22.26035,16.3767302 L22.26035,16.3767302 Z" id="Shape-Copy-2" fill="#EB991E"></path>
+						        <path d="M26.6,16.3767302 L31.09925,6.60977778 C31.09925,6.60977778 31.8381,4.99749206 33.89155,4.66993651 C35.945,4.34203175 41.4764,3.84126984 41.4764,3.84126984 L41.47465,3.8444127 C41.49565,3.84266667 41.51035,3.84126984 41.51035,3.84126984 L33.80755,18.8665714 L28.08435,19.5077143 L28.0826,19.5042222 L28.0504,19.5077143 L26.6,16.3767302 L26.6,16.3767302 Z" id="Shape-Copy-3" fill="#EB991E"></path>
+						        <polygon id="Shape-Copy-4" fill="#EB991E" points="27.34865 32.3239365 24.1759 30.3830476 24.17415 30.3830476 24.1724 30.3809524 22.5862 31.3534921 21 32.3239365 21.0007 32.3253333 21 32.3260317 24.16645 38.6180317 27.34865 32.3260317 27.34795 32.3253333"></polygon>
+						        <polygon id="Shape-Copy-5" fill="#EB991E" points="37.08915 19.8733333 27.17085 21.3159048 24.3201 13.968254 21.46795 21.3159048 11.55 19.8733333 19.2409 25.6488571 15.51725 33.9830159 24.3201 28.8866984 33.12155 33.9830159 29.3993 25.6488571"></polygon>
+						    </g>
+						</svg>	
+					</a>
+				</div>
+				<!-- END: Logo -->
+
+				<!-- BEGIN: Navigation -->
+				<nav class="header-nav">
+					<ul>
+						<li><a href="#" title="">Chat Invite</a></li>
+						<li><a href="#" title="">FAQ</a></li>
+						<li><a href="#" title="">Rules</a></li>
+					</ul>
+				</nav>
+				<!-- END: Navigation -->
+			</div>
+
+			<div class="header-right float-right">
+
+				<!-- BEGIN: Mobile Search Button -->
+				<div class="mobile mobile-search search">
+					<button class="ion-search search-icon icon-only"><span>Submit</span></button>
+				</div>
+				<!-- END: Mobile Search Button -->
+
+				<!-- BEGIN: Search Box -->
+				<div class="search-container search float-left">
+					<form class="search-box helvNue">
+						<fieldset>
+						<label for="header_search">Search</label><br>
+						<input id="header_search" type="search" name="search" placeholder="e.g. Goku, LSW, effects">
+						<button class="ion-search search-icon icon-only"><span>Submit</span></button>
+						</fieldset>
+					</form>
+				</div>
+				<!-- END: Search Box -->
+				
+				<!-- BEGIN: Notifications -->
+				<div class="notifications-container float-left">
+					<!-- BEGIN: Notification Trigger -->
+					<a href="#header-notification" class="notification-icon has-notification ion-android-notifications icon-only dropdown-trigger">
+						<span>Notifications</span>
+						<span class="notification-counter helvNue">1</span>
+					</a>
+					<!-- END: Notifcation Trigger -->
+
+					<!-- BEGIN: Notification List -->
+					<div id="header-notification" class="notification-list dropdown-container">
+						<div class="notification-close mobile-close mobile"><a class="ion-close icon-only" href="#"><span>Close</span></a></div>
+
+						<h3>Notifications</h3>
+						<ul>
+							<!-- BEGIN: Notification Block -->
+							<li class="clear new">
+								<a href="#" title="Notification from Username in Topic on Time">
+									<div class="avatar-container float-left">
+										<img src="http://i.imgur.com/9OPnZNk.png" alt="Notification - Post Avatar">
+									</div>
+									<p class="notification-title"><strong>Reply</strong> from <strong>Username</strong> in <span class="notification-reference">Notification Topic.</span></p>
+									<p class="notification-time">Today, 3:41 am</p>
+								</a>
+							</li>
+							<!-- END: Notification Block -->
+							<!-- BEGIN: Notification Block -->
+							<li class="clear">
+								<a href="#" title="Notification from Username in Topic on Time">
+									<div class="avatar-container float-left">
+										<img src="http://i.imgur.com/9OPnZNk.png" alt="Notification - Post Avatar">
+									</div>
+									<p class="notification-title"><strong>Reply</strong> from <strong>Username</strong> in <span class="notification-reference">Notification Topic.</span></p>
+									<p class="notification-time">Today, 3:41 am</p>
+								</a>
+							</li>
+							<!-- END: Notification Block -->
+						</ul>
+						<div class="footer">
+						
+						<div class="float-left">
+							<p class="settings-icon ion-ios-gear"><a href="#">Settings</a></p>
+						</div>
+
+						<div class="float-left">
+							<p><a href="#">See all notifications</a></p>
+						</div>
+
+						<div class="float-left">
+							<p><a class="mark-notifications-read" href="#">Mark all as read</a></p>
+						</div>
+
+						</div>
+					</div>
+					<!-- END: Notification List -->
+				</div>
+				<!-- END: Notifications-->
+
+				<!-- BEGIN: Username Container -->
+				<div class="username-container float-left">
+					<!-- BEGIN: Avatar Container -->
+					<div class="avatar-container float-left">
+						<a href="#">
+							<img src="http://i.imgur.com/9OPnZNk.png" alt="Your avatar"/>
+						</a>
+					</div>
+					<!-- END: Avatar Container -->
+					
+					<!-- BEGIN: Profile Edit -->
+					<a href="#" title="Edit Profile" class="float-left">
+						<span class="username">RandomSemiLongUsername</span><br>
+						<span class="edit-profile">Edit Profile</span>
+					</a>
+					<!-- END: Profile Edit -->
+				</div>
+				<!-- END: Username Container -->
+
+			</div>
+
+		</header>
+		<!-- END: Header -->
+
+		<!-- BEGIN: Currently Viewing -->
+		<div class="currently-viewing">
+			<!-- BEGIN: Logo -->
+				<div id="currently-viewing_logo">
+					<a href="#" title="Back to home">
+						<h1>Dragonball Vortex</h1>
+
+						<svg width="36px" height="33px" viewBox="0 9 49 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <defs></defs>
+						    <g id="Inverse-Logo-Secondary" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 9.000000)">
+						        <path d="M43.95195,1.65488889 L36.10285,18.1091429 L43.2523,16.6323492 L33.87125,23.937746 L34.17645,24.5760952 L37.10105,25.0408889 L34.9524,27.0743175 L35.41335,29.9929841 L32.8083,28.5811429 L35.6314,36.7766667 L28.8533,32.6092381 L24.4104,40.8543492 L19.99095,32.6092381 L13.21215,36.7766667 L15.77415,29.339619 L14.3773,28.5825397 L11.73725,29.9213968 L12.27765,27.0163492 L10.18535,24.9253016 L13.1215,24.5404762 L13.8691,23.0786984 L5.5902,16.632 L12.74,18.1087937 L4.8916,1.65453968 C6.342,1.8092381 12.47715,2.47831746 15.0521,2.98536508 C17.8612,3.53955556 18.45515,5.2527619 18.48665,5.34530159 L22.9411,14.9173968 L24.42125,10.6486984 L25.9014,14.9173968 L30.36355,5.32539683 C30.38735,5.2527619 30.9813,3.53955556 33.79075,2.98536508 C36.3657,2.47866667 42.50155,1.8095873 43.95195,1.65488889 L43.95195,1.65488889 Z M46.2917,0 L43.80285,0.265746032 C42.0455,0.453269841 36.1109,1.10488889 33.51985,1.61507937 C30.27185,2.25552381 29.28065,4.25473016 29.07205,4.78377778 L26.0911,11.1917143 L25.7446,10.1922857 L24.4216,6.37650794 L23.09825,10.1919365 L22.7514,11.1924127 L19.78025,4.80787302 C19.558,4.23238095 18.5703,2.25552381 15.3237,1.61507937 C12.7309,1.10488889 6.79735,0.452920635 5.0407,0.265746032 L2.5522,0 L3.62775,2.2548254 L10.2655,16.1713968 L5.8744,15.2641587 L7.10542736e-15,14.0506667 L4.7292,17.7330476 L11.872,23.2952063 L10.00335,23.54 L7.1904,23.9084127 L9.19485,25.9118095 L10.76705,27.4828889 L10.36105,29.666127 L9.8434,32.4489524 L12.37215,31.1663175 L13.9384,30.3722222 L11.88845,36.3226984 L10.61725,40.0127619 L13.9468,37.9657143 L19.4586,34.5773651 L23.1763,41.5133016 L24.4076,43.810381 L25.6438,41.5160952 L29.38355,34.575619 L34.89745,37.9657143 L38.22735,40.0127619 L36.95615,36.3226984 L35.3024,31.5221587 L37.2386,32.5711746 L36.79725,29.7754286 L36.45075,27.5824127 L38.06565,26.0542857 L40.12365,24.1064127 L37.3226,23.6615238 L36.64185,23.5532698 L44.1154,17.7333968 L48.84425,14.0510159 L42.9702,15.2645079 L38.57945,16.171746 L45.2179,2.2551746 L46.2917,0 L46.2917,0 L46.2917,0 Z" id="Shape-Copy" fill="#EB991E"></path>
+						        <path d="M22.26035,16.3767302 L17.7611,6.60977778 C17.7611,6.60977778 17.02225,4.99749206 14.9688,4.66993651 C12.91535,4.34203175 7.38395,3.84126984 7.38395,3.84126984 L7.3857,3.8444127 C7.3647,3.84266667 7.35,3.84126984 7.35,3.84126984 L15.0528,18.8665714 L20.776,19.5077143 L20.77775,19.5042222 L20.80995,19.5077143 L22.26035,16.3767302 L22.26035,16.3767302 Z" id="Shape-Copy-2" fill="#EB991E"></path>
+						        <path d="M26.6,16.3767302 L31.09925,6.60977778 C31.09925,6.60977778 31.8381,4.99749206 33.89155,4.66993651 C35.945,4.34203175 41.4764,3.84126984 41.4764,3.84126984 L41.47465,3.8444127 C41.49565,3.84266667 41.51035,3.84126984 41.51035,3.84126984 L33.80755,18.8665714 L28.08435,19.5077143 L28.0826,19.5042222 L28.0504,19.5077143 L26.6,16.3767302 L26.6,16.3767302 Z" id="Shape-Copy-3" fill="#EB991E"></path>
+						        <polygon id="Shape-Copy-4" fill="#EB991E" points="27.34865 32.3239365 24.1759 30.3830476 24.17415 30.3830476 24.1724 30.3809524 22.5862 31.3534921 21 32.3239365 21.0007 32.3253333 21 32.3260317 24.16645 38.6180317 27.34865 32.3260317 27.34795 32.3253333"></polygon>
+						        <polygon id="Shape-Copy-5" fill="#EB991E" points="37.08915 19.8733333 27.17085 21.3159048 24.3201 13.968254 21.46795 21.3159048 11.55 19.8733333 19.2409 25.6488571 15.51725 33.9830159 24.3201 28.8866984 33.12155 33.9830159 29.3993 25.6488571"></polygon>
+						    </g>
+						</svg>	
+					</a>
+				</div>
+			<!-- END: Logo -->
+
+			<!-- BEGIN: Viewing topic -->
+			<span><strong>Currently viewing</strong>:<br> Currently Topic</span>
+			<!-- END: Viewing topic -->
+
+			<!-- BEGIN: Currently Viewing Right -->
+			<div class="float-right">
+				<!-- BEGIN: Notification Trigger -->
+					<a href="#" class="notification-icon small has-notification ion-android-notifications icon-only dropdown-trigger float-left">
+						<span>Notifications</span>
+						<span class="notification-counter helvNue"></span>
+					</a>
+				<!-- END: Notifcation Trigger -->
+
+				<!-- BEGIN: Notification List -->
+					<div class="notification-list dropdown-container">
+						<div class="notification-close mobile-close mobile"><a class="ion-close icon-only" href="#"><span>Close</span></a></div>
+
+						<h3>Notifications</h3>
+						<ul>
+							<!-- BEGIN: Notification Block -->
+							<li class="clear new">
+								<a href="#" title="Notification from Username in Topic on Time">
+									<div class="avatar-container float-left">
+										<img src="http://i.imgur.com/9OPnZNk.png" alt="Notification - Post Avatar">
+									</div>
+									<p class="notification-title"><strong>Reply</strong> from <strong>Username</strong> in <span class="notification-reference">Notification Topic.</span></p>
+									<p class="notification-time">Today, 3:41 am</p>
+								</a>
+							</li>
+							<!-- END: Notification Block -->
+							<!-- BEGIN: Notification Block -->
+							<li class="clear">
+								<a href="#" title="Notification from Username in Topic on Time">
+									<div class="avatar-container float-left">
+										<img src="http://i.imgur.com/9OPnZNk.png" alt="Notification - Post Avatar">
+									</div>
+									<p class="notification-title"><strong>Reply</strong> from <strong>Username</strong> in <span class="notification-reference">Notification Topic.</span></p>
+									<p class="notification-time">Today, 3:41 am</p>
+								</a>
+							</li>
+							<!-- END: Notification Block -->
+						</ul>
+						<div class="footer">
+						
+						<div class="float-left">
+							<p class="settings-icon ion-ios-gear"><a href="#">Settings</a></p>
+						</div>
+
+						<div class="float-left">
+							<p><a href="#">See all notifications</a></p>
+						</div>
+
+						<div class="float-left">
+							<p><a class="mark-notifications-read" href="#">Mark all as read</a></p>
+						</div>
+
+						</div>
+					</div>
+					<!-- END: Notification List -->
+
+				<!-- BEGIN: Avatar Container -->
+					<div class="avatar-container small float-left">
+						<a href="#">
+							<img src="http://i.imgur.com/9OPnZNk.png" alt="Your avatar"/>
+						</a>
+					</div>
+				<!-- END: Avatar Container -->
+
+				<!-- BEGIN: Username Container -->
+					<div class="username-container small float-left">
+						<a href="#">
+							<span class="username">RandomSemiLongUsername</span>
+						</a>
+					</div>
+				<!-- END: Username Container -->
+			</div>
+			<!-- END: Currently Viewing Right -->
+		</div>
+		<!-- END: Currently Viewing -->
+
+		<!-- BEGIN: Bread Crumbs and Quote Machine -->
+		<section class="breadcrumb-container inner-container clear">
+			<!-- BEGIN: Bread Crumbs Container -->
+			<div class="breadcrumbs float-left">
+				<div class="breadcrumb">
+					<p><a href="#">Home</a> <span class="breadcrumb-icon ion-chevron-right"></span> <a href="#">Home</a> <span class="breadcrumb-icon ion-chevron-right"></span> <a href="#">Home</a></p>
+				</div>	
+				<div class="date-and-time">
+					<span class="time">It is July 16th, 2016, 6:49 pm</span><br>
+					<span class="time">Last visit was I don&rsquo;t know. I&rsquo;m usually wrong.</span>
+				</div>			
+			</div>
+			<!-- END: Bread Crumbs Container -->
+
+			<!-- BEGIN: Quote Machine -->
+			<div id="quote-machine" class="float-left">
+				<p>
+					<span class="qm_quote">This is something somebody actually said. Don&rsquo;t know why though. We're pretty weird, I guess.</span>
+					<br>
+					<span class="qm_author">&mdash; <em>SomeWeirdo</em></span>
+				</p>
+			</div>
+			<!-- END: Quote Machine -->
+		</section>
+		<!-- END: Time and Quote Machine -->
+
+		<!-- BEGIN: Inner Container -->
+		<section class="inner-container clear">
+
+			<!-- BEGIN: Left Side -->
+				<div class="content-container float-left">
+
+				<div class="pagination">
+					<ul>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>
+
+
+					<!-- BEGIN: Forums -->
+						<div class="topic-title">
+							<h2>Topic Title</h2>
+						</div>
+
+						<!-- BEGIN: Posts -->
+						<div class="posts">
+							<!-- BEGIN: Post -->
+							<div class="post clear">
+								<!-- BEGIN: Poster -->
+								<div class="poster has-profile-rank has-avatar float-left">
+									<!-- BEGIN: Username Container -->
+									<div class="poster-username username-container">
+										<a href="#">
+											<span class="username">RandomSemiLongUsername</span>
+										</a>
+									</div>
+									<!-- END: Username Container -->
+
+									<!-- BEGIN: Avatar Container -->
+									<div class="poster-avatar avatar-container clear">
+										<a href="#">
+											<img src="http://i.imgur.com/9OPnZNk.png" alt="Your avatar"/>
+										</a>
+									</div>
+									<!-- END: Avatar Container -->
+
+									<!-- BEGIN: Post Rank -->
+									<div class="poster-post-rank post-rank">
+										Yamcha<br>
+										<img src="" title="Post Rank" alt="Post Rank"/>
+									</div>
+									<!-- END: Post Rank -->
+
+									<!-- BEGIN: Poster Details -->
+									<div class="poster-details-container">
+										<ul class="poster-details">
+											<li><strong>Posts</strong>: 1000</li>
+											<li><strong>Location</strong>: 1000</li>
+											<li><strong>Member since</strong> June 24, 2017</li>
+											<li><strong>Contact</strong></li>
+												<ul class="poster-contact">
+													<li><a href="#">Send private message</a></li>
+													<li><a href="#">Send email</a></li>
+													<li><a href="#">Website</a></li>
+													<li><a href="#">WLM</a></li>
+												</ul>
+										</ul>
+									</div>
+									<!-- END: Poster Details -->
+
+
+								</div>
+								<!-- END: Poster -->
+
+								<!-- BEGIN: Post Body -->
+								<div class="post-body float-right">
+									<!-- BEGIN: Post Link/Hash -->
+									<div class="post-number">
+										<a href="#" class="ion-pound icon-only"><span>Post Number</span></a>
+									</div>
+									<!-- END: Post Link/Hash -->
+
+									<!-- BEGIN: Post Options -->
+									<div class="post-options-container">
+										<div class="mobile-post-options-trigger"><a class="button white ion-android-more-vertical" href="#"><span>Post Options</span></a></div>
+
+										<ul class="post-options">
+											<li><a class="button small white ion-quote" href="#">Quote post</a></li>
+											<li><a class="button small white ion-edit" href="#">Edit post</a></li>
+											<li><a class="button small white ion-trash-b" href="#">Delete post</a></li>
+											<!-- Divider goes here -->
+											<li><a class="button small white ion-alert" href="#">Report post</a></li>
+											<li><a class="button small white ion-android-hand" href="#">Warn user</a></li>
+											<li><a class="button small white ion-information-circled" href="#">Post details</a></li>
+											<!-- <li><a class="ion-quote" href="#"></a></li> -->
+										</ul>
+									</div>
+									<!-- END: Post Options -->
+
+									<!-- BEGIN: Post Body -->
+									<div class="post-body-content">
+										Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned.<br><br>
+										Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned. Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned<br><br>
+										Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned.<br><br>
+										Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned. Idk if I should post my edits from DA on here since there already a few years old so mind as well post some new stuff here instead. Updates will be coming soon so stay tuned<br><br>
+									</div>
+									<!-- END: Post Body -->
+
+									<!-- BEGIN: Signature -->
+									<div class="signature">
+										
+									</div>
+									<!-- END: Signature -->
+								</div>
+								<!-- END: Post Body -->
+
+							</div>
+							<!-- END: Post -->
+							
+						</div>
+						<!-- END: Posts -->
+					<!-- END: Forums -->
+
+					<!-- BEGIN: Quick Reply Container -->
+					<div class="quick-reply-container">
+						<form>
+							<fieldset class="quick-reply fields1">
+								<!-- BEGIN: Hidden Quick Reply Fields -->
+								<label for="subject" class="hidden helvNue">Subject:</label>
+								<input type="text" name="subject" id="subject" size="45" maxlength="124" tabindex="2" value="Entei's Custom Sprites Office" class="hidden inputbox autowidth">
+								<!-- END: Hidden Quick Reply Fields -->
+
+								<!-- BEGIN: Quick Reply Text Area -->
+								<div id="quick-reply-message-box">
+									<label class="quickreply-title" for="quick-reply-textarea">Quick Reply</label>
+									<textarea id="quick-reply-textarea" name="quick-reply-textarea" class="inputbox textarea" placeholder="Begin typing&hellip;"></textarea>
+								</div>
+								<!-- END: Quick Reply Text Area -->
+
+							</fieldset>
+
+							<!-- BEGIN: Quick Reply Buttons -->
+							<fieldset class="submit-buttons">
+								<!-- BEGIN: Hidden Buttons -->
+								<input type="hidden" name="creation_time" value="1477179503">
+								<input type="hidden" name="form_token" value="0d9308716478d9302ba539749c15b1889d744d20">
+								<input type="hidden" name="topic_cur_post_id" value="43442">
+								<input type="hidden" name="lastclick" value="1477179503">
+								<input type="hidden" name="topic_id" value="2561">
+								<input type="hidden" name="forum_id" value="6">
+								<input type="hidden" name="attach_sig" value="1">
+								<input type="hidden" name="notify" value="1">
+								<!-- END: Hidden Buttons -->
+
+								<!-- BEGIN: Clickable Buttons -->
+								<button type="submit" accesskey="f" tabindex="6" name="preview" value="Full Editor &amp; Preview" class="button" id="qr_full_editor">Full Editor &amp; Preview</button>
+								<button type="submit" accesskey="s" tabindex="7" name="post" value="Submit" class="ion-android-send button purple">Submit</button>
+								<!-- END: Clickable Buttons -->
+							</fieldset>
+							<!-- END: Quick Replay Buttons -->
+						</form>
+					</div>
+					<!-- END: Quick Reply Container -->
+
+				</div>
+			<!-- END: Left Side -->
+			
+			<!-- BEGIN: Right Side -->
+				<div class="contextual-side float-left">
+					<ul class="">
+						<li><a href="#" class="button purple reply-button ion-chatbubbles">Reply</a></li>
+						<li><a href="#" class="button purple create-topic-button ion-plus-round">Create topic</a></li>
+						<li><a href="#" class="button locked-button disabled ion-lock-combination">Locked topic</a></li>
+						<li class="section-divider"><a href="">ACP</a></li>
+						<li><a href="#">MCP</a></li>
+						<li class="section-divider"><a href="">Private Messages</a></li>
+						<li><a href="">Newest posts</a></li>
+						<li><a href="#">Unread posts</a></li>
+						<li><a href="#">Unanswered posts</a></li>
+						<li><a href="#">Active topics</a></li>
+						<li class="section-divider"><a href="">Log out</a></li>
+					</ul>
+				</div>
+			<!-- END: Right Side -->
+
+			<!-- BEGIN: Right Side -->
+				<!-- <div class="contextual-menu-button mobile">
+					<a href="#mobile-context-menu" class="button purple">
+					<span class="ion-android-menu icon-only"><span>Quick Menu Icon</span></span>
+					<br>
+					Quick Menu
+					</a>
+				</div>
+
+				<div id="mobile-context-menu" class="contextual-side mobile">
+					<h3>Quick Menu</h3>
+
+					<div class="quick-menu-close mobile-close mobile"><a class="ion-close icon-only" href="#"><span>Close</span></a></div>
+
+					<ul class="">
+						<li><a href="#" class="button purple reply-button ion-chatbubbles">Reply</a></li>
+						<li><a href="#" class="button purple create-topic-button ion-plus-round">Create topic</a></li>
+						<li><a href="#" class="button locked-button disabled ion-lock-combination">Locked topic</a></li>
+						<li class="section-divider"><a href="">ACP</a></li>
+						<li><a href="#">MCP</a></li>
+						<li class="section-divider"><a href="">Private Messages</a></li>
+						<li><a href="">Newest posts</a></li>
+						<li><a href="#">Unread posts</a></li>
+						<li><a href="#">Unanswered posts</a></li>
+						<li><a href="#">Active topics</a></li>
+						<li class="section-divider"><a href="">Log out</a></li>
+					</ul>
+				</div> -->
+			<!-- END: Right Side -->
+
+		</section>
+		<!-- END: Inner Container -->
+
+		
+
+		<!-- BEGIN: Forum Info Area -->
+		<section class="info-container inner-container">
+
+			<!-- BEGIN: Topic Sort -->
+			<form method="post" action="#">
+				<fieldset class="display-options">
+					<label for="st">Display topics from previous: </label>
+					<select name="st" id="st" class="short-select js-example-basic-single">
+						<option value="0" selected="selected">All Topics</option>
+						<option value="1">1 day</option><option value="7">7 days</option>
+						<option value="14">2 weeks</option>
+						<option value="30">1 month</option>
+						<option value="90">3 months</option>
+						<option value="180">6 months</option>
+						<option value="365">1 year</option>
+					</select>
+
+					<label for="sk" >Sort by</label>
+					<select name="sk" id="sk" class="short-select js-example-basic-single">
+						<option value="a">Author</option>
+						<option value="t" selected="selected">Post time</option>
+						<option value="r">Replies</option>
+						<option value="s">Subject</option>
+						<option value="v">Views</option>
+					</select>
+
+					<label for="sd"></label>
+					<select name="sd" id="sd" class="short-select js-example-basic-single">
+						<option value="a">Ascending</option>
+						<option value="d" selected="selected">Descending</option>
+					</select>
+
+					<input type="submit" name="sort" value="Go" class="button purple small">
+				</fieldset>
+			</form>
+			<!-- END: Topic Sort -->
+
+			<!-- BEGIN: Pagination -->
+			<div class="pagination">
+					<ul>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>
+			<!-- END: Pagination -->
+
+			<!-- BEGIN: Extra Board Bits -->
+			<div>
+				<a href="#" class="mark-topics-read">Mark topics read</a> &bull; 243 topic
+			</div>
+			<!-- END: Extra Board Bits -->
+
+			<!-- BEGIN: Permissions -->
+			<div class="board-online">
+				<h3>Who is online?</h3>
+				<p>Users sneakily browsing this forum: </p>
+			</div>
+			<!-- END: Permissions -->
+
+			<!-- BEGIN: Permissions -->
+			<div class="board-permissions">
+				<h3>Permissions</h3>
+				<ul>
+					<li>You <strong>can</strong> post new topics in this forum</li>
+					<li>You <strong>can</strong> reply to topics in this forum</li>
+					<li>You <strong>can</strong> edit your posts in this forum</li>
+					<li>You <strong>can</strong> delete your posts in this forum</li>
+				</ul>
+			</div>
+			<!-- END: Permissions -->
+
+
+		</section>
+		
+
+
+
+	</div>
+	<!-- END: Container -->
+
+	<!-- BEGIN: Mobile Thing -->
+	<div class="mobile-navigation">
+		<ul>
+			<li><a href="#" title="">Chat</a></li>
+			<li><a href="#" title="">FAQ</a></li>
+			<li><a href="#" title="">Rules</a></li>
+			<li class="contextual-menu-button"><a class="purple" href="#mobile-context-menu" title="">Menu</a></li>
+		</ul>
+	</div>
+	<!-- END: Mobile Thing -->
+
+	<!-- BEGIN: Right Side -->
+		<!-- <div class="contextual-menu-button mobile">
+			<a href="#mobile-context-menu" class="button purple">
+			<span class="ion-android-menu icon-only"><span>Quick Menu Icon</span></span>
+			<br>
+			Quick Menu
+			</a>
+		</div> -->
+
+		<div id="mobile-context-menu" class="contextual-side mobile">
+			<h3>Quick Menu</h3>
+
+			<div class="quick-menu-close mobile-close mobile"><a class="ion-close icon-only" href="#"><span>Close</span></a></div>
+
+			<ul class="">
+				<li><a href="#" class="button purple reply-button ion-chatbubbles">Reply</a></li>
+				<li><a href="#" class="button purple create-topic-button ion-plus-round">Create topic</a></li>
+				<li><a href="#" class="button locked-button disabled ion-lock-combination">Locked topic</a></li>
+				<li class="section-divider"><a href="">ACP</a></li>
+				<li><a href="#">MCP</a></li>
+				<li class="section-divider"><a href="">Private Messages</a></li>
+				<li><a href="">Newest posts</a></li>
+				<li><a href="#">Unread posts</a></li>
+				<li><a href="#">Unanswered posts</a></li>
+				<li><a href="#">Active topics</a></li>
+				<li class="section-divider"><a href="">Log out</a></li>
+			</ul>
+		</div>
+	<!-- END: Right Side -->
+
+	<!-- BEGIN: Footer -->
+	<footer id="footer">
+		<div class="inner-container">
+			<!-- BEGIN: Footer Links -->
+			<div class="column">
+				<h5>User Links</h5>
+				<ul>
+					<li><a href="#">Private Messages</a></li>
+					<li><a href="">ACP</a></li>
+					<li><a href="#">MCP</a></li>
+					<li><a href="">Newest posts</a></li>
+					<li><a href="#">Unread posts</a></li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<h5>Vortex</h5>
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Discord Chat Invite</a></li>
+					<li><a href="#">Vortex Styleguides</a></li>
+					<li><a href="">Members</a></li>
+					<li><a href="#">The team</a></li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<h5>Help</h5>
+				<ul>
+					<li><a href="#">Rules</a></li>
+					<li><a href="#">F.A.Q.</a></li>
+				</ul>
+			</div>
+
+			<div class="">
+			</div>
+			<!-- END: Footer Links -->
+		</div>
+		
+
+		<br class="clear">
+
+		<div class="copyright">
+			Powered by <a href="https://www.phpbb.com/">phpBB</a>&copy; Forum Software &copy; phpBB Limited
+		</div>
+	</footer>
+	<!-- END: Footer -->
+
+	<div id="header-trigger"></div>
+
+</body>
+</html>

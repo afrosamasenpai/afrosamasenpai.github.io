@@ -1,0 +1,46 @@
+/* BEGIN: Helvetica */
+    /* Regular*/
+    @font-face {
+        font-family: 'HelveticaNeue';
+        src: url('../fonts/helveticaneue-regular.eot');
+        src: url('../fonts/helveticaneue-regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helveticaneue-regular.woff2') format('woff2'),
+        url('../fonts/helveticaneue-regular.woff') format('woff'), 
+        url('../fonts/helveticaneue-regular.ttf')  format('truetype'),
+        url('../fonts/helveticaneue-regular.svg#svgFontName') format('svg');
+        font-weight: 400;
+    }
+    /* Italic */
+    @font-face {
+        font-family: 'HelveticaNeue';
+        src: url('../fonts/helveticaneue-italic.eot');
+        src: url('../fonts/helveticaneue-italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helveticaneue-italic.woff2') format('woff2'),
+        url('../fonts/helveticaneue-italic.woff') format('woff'), 
+        url('../fonts/helveticaneue-italic.ttf')  format('truetype'),
+        url('../fonts/helveticaneue-italic.svg#svgFontName') format('svg');
+        font-style: italic;
+    }
+    /* Bold */
+    @font-face {
+        font-family: 'HelveticaNeue';
+        src: url('../fonts/helveticaneue-bold.eot');
+        src: url('../fonts/helveticaneue-bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helveticaneue-bold.woff2') format('woff2'),
+        url('../fonts/helveticaneue-bold.woff') format('woff'), 
+        url('../fonts/helveticaneue-bold.ttf')  format('truetype'),
+        url('../fonts/helveticaneue-bold.svg#svgFontName') format('svg');
+        font-weight: 700;
+    }
+    /* Light */
+    @font-face {
+        font-family: 'HelveticaNeue';
+        src: url('../fonts/helveticaneue-light.eot');
+        src: url('../fonts/helveticaneue-light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/helveticaneue-light.woff2') format('woff2'),
+        url('../fonts/helveticaneue-light.woff') format('woff'), 
+        url('../fonts/helveticaneue-light.ttf')  format('truetype'),
+        url('../fonts/helveticaneue-light.svg#svgFontName') format('svg');
+        font-weight: 100;
+    }
+    /* END: Helvetica */
