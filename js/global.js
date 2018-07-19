@@ -1,177 +1,181 @@
-jQuery(function($) {
-	'use strict';
+const init = () => {
+    'use strict'
+    // Variables
+    let container = select('.container')[0]
+    let content = select('.content', container)[0]
+    let navItem = select('.nav__item')
+    let breathContainer = select('.bg-container__breath')[0]
+    let wakeContainer = select('.bg-container__wake')[0]
+    let oneFrame = 133; // Actually 8 frames at 60FPS, in milliseconds
+    anime.easings['frameAnimation'] = () => 0
 
-	// Check if the JS is working because you can never be too careful
-	console.log('Initilize?');
+    // Store the initial content so we can revisit it later
+    history.replaceState(null, null, document.location.href);
 
-	// DOM
-	var WINDOW = $(window);
-	var HTML = $('html');
-	var BODY = $('body');
-	var $container = $('.container');
-	var $breathAnimationContainer = $('.breath-animation');
-	var $wakeupAnimationContainer = $('.wakeup-animation');
-	var $breathAnimationSVG = $breathAnimationContainer.find('svg');
-	var $wakeupAnimationSVG = $wakeupAnimationContainer.find('svg');
-	var $wantMore = $('.want-more');
-	var $cursor = $('#dumb-cursor');
-	// URL check
-	var urlReg = /[^\/]+(?=\/$|$)/ig;
+    navItem.forEach( el => {
+        let navLink = select('a', el)[0]
 
-	// History API stuff
-	var $nav = $('header nav ul');
-	var $navLink = $('header nav ul li a');
-	var $content = $('.content-container');
-	
-	var updateContainers = function(page, url){
-		// Begin screen off CRT transition
-		BODY.removeClass().addClass('ready screen-off');
+        if ( !isTouchDevice() ){
+            // Hover animation
+            el.addEventListener('mouseenter', e => navHover('0px', '100%') )
+            
+            el.addEventListener('mouseleave', e => navHover() )
+        }
 
-		// Change content on a delay, just to get rid of the weird occasional pop in
-		setTimeout(function(){
-			// Update container class
-			HTML.removeClass().addClass(page);
-			$container.removeClass().addClass('container ' + page);
-			// Keep the nav in the DOM because it borks and reloads. 
-			// There's also a way to have it work with it, but simple class change works.
-			$nav.find('.' + page).addClass('hidden').removeClass('active');
-			$nav.find('.' + page).siblings().removeClass('hidden').addClass('active');
+        // History
+        navLink.addEventListener('click', e => {
+            e.preventDefault()
 
-			history.pushState({}, '', url);
-			$content.load(url + ' .content-container > *');
-			// Turn on that screen!
-			BODY.removeClass('screen-off').addClass('screen-on');
-		}, 1000);
-	};
+            let name = navLink.getAttribute('data-name')
+            let url = navLink.getAttribute('href') 
 
-	// Device check for custom cursor, if uses touch, ignore
-	var isTouchDevice = function() {
-		return 'ontouchstart' in window // works on most browsers 
-		|| navigator.maxTouchPoints; // works on IE10/11 and Surface
-	};
+            history.pushState(null, null, url)
 
-	// Header nav click event
-	$navLink.each(function(){
-		var $this = $(this);
+            // Make sure you don't constantly reload if clicking a link you're already on.
+            if (e.target != window.location.href) {
+                updateContainers(name, url);
+            }
+        })
+        
+    })
 
-		$this.on('click', function(e){
-			e.preventDefault();
+    const breathAnimation = anime({
+            targets: '.bg-container__breath svg',
+            viewBox: [ 
+                { value: '0 0 52 35', duration: (oneFrame * 5) }, 
+                { value: '0 0 52 35', duration: oneFrame },
+                { value: '52 0 52 35', duration: oneFrame }, 
+                { value: '104 0 52 35', duration: oneFrame }, 
+                { value: '156 0 52 35', duration: oneFrame }, 
+                { value: '156 0 52 35', duration: (oneFrame * 5) }, 
+            ],
+            duration: oneFrame * 14,
+            easing: 'frameAnimation',
+            direction: 'alternate',
+            loop: 6,
+            complete: () => {
 
-			var name = $this.attr('data-name');
-			var url = $this.attr('href');
+                if ( container.classList.contains('is-ready') ) {
+                    breathAnimation.restart()
+                } else {
+                    breathContainer.classList.add('is-hidden')
+                    wakeContainer.classList.remove('is-hidden')
+                    wakeupAnimation.play()
+                }
+            }
+                
+        })
 
-			$this.data('name', name);
+    const wakeupAnimation = anime({
+         targets: '.bg-container__wake svg',
+         viewBox: [ 
+             { value: '0 0 52 37', duration: (oneFrame * 5) }, 
+             { value: '0 0 52 37', duration: oneFrame },
+             { value: '52 0 52 37', duration: oneFrame }, 
+             { value: '104 0 52 37', duration: oneFrame }, 
+             { value: '156 0 52 37', duration: oneFrame }, 
+             { value: '208 0 52 37', duration: oneFrame }, 
+             { value: '260 0 52 37', duration: oneFrame }, 
+             { value: '312 0 52 37', duration: oneFrame }, 
+             { value: '312 0 52 37', duration: (oneFrame * 5) }, 
+         ],
+         duration: oneFrame * 17,
+         easing: 'frameAnimation',
+         direction: 'alternate',
+         autoplay: false,
+         complete: () => {
 
-			// Make you don't constantly reload if clicking a link you're already on.
-			if (e.target != window.location.href) {
-				updateContainers(name, url);
-			}
-		});
+            breathContainer.classList.remove('is-hidden')
+            wakeContainer.classList.add('is-hidden')
+            container.classList.add('is-ready')
+            breathAnimation.restart()
 
-		if (!isTouchDevice()){
-			$this.on('mouseenter', function(){
-				navHover('0px', '100%');
-			}).on('mouseleave touchstart touchend', function(){
-				navHover('4px', '10%')
-			});
-		}
-	});
+         }
+     })
 
-	WINDOW.on('popstate', function(){
-		var $this = $(this);
-		var url = window.location.href;
-		var name = $this.data('name');
+    window.addEventListener('popstate', (e) => {
+        // console.log(e.state)
+        // URL check
+        // let urlReg = /[^\/]+(?=\/$|$)/ig
+        let urlReg = /[^\/]+(?=\/|$)/ig
+        let url = window.location.href
+        let subDirectory = url.match(urlReg)[2]
 
-		if ( url.match(urlReg) != 'tyronekinda.works') {
-			updateContainers(url.match(urlReg), url);
-		} else {
-			updateContainers('home', url);
-		}
-	});
+        if ( subDirectory === undefined) {
+            updateContainers('home', '/')
+        } else {
+            updateContainers(subDirectory, url)
+        }
+    })
+}
 
-	// Custom Cursor 
-	// because reasons
-	// if ( !isTouchDevice() ) {
-	// 	HTML.addClass('custom-cursor');
-	// 	WINDOW.on('mousemove', function(e) {
-	// 		$cursor.removeClass('hidden');
-	// 		$cursor.css({
-	// 			'transform': 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)'
-	// 		});
-	// 	}).on('mouseleave', function(e){
-	// 		$cursor.addClass('hidden');
-	// 	}).on('mouseenter', function(e){
-	// 		$cursor.removeClass('hidden');
-	// 	});
-	// } else {
-	// 	HTML.removeClass('custom-cursor');
-	// }
+const select = (selector, parent = document) => (
+    [].slice.call(
+        parent.querySelectorAll(selector)
+    )
+)
 
-	// Animation
-	// Timing
-	var oneFrame = 133; // Actually 8 frames at 60FPS, in milliseconds
-	anime.easings['frameAnimation'] = function() {
-		return 0;
-	}
+const navHover = (bottom = '4px', height = '10%') => {
+     anime.remove('.is-active .nav__link-bar')
+     anime({
+         targets: '.is-active .nav__link-bar',
+         bottom: bottom,
+         height: height,
+         duration: 660,
+         elasticity: 300
+     })
+}
 
-	var navHover = function(bottom, height) {
-		anime.remove('.active .link-bar');
-		anime({
-			targets: '.active .link-bar',
-			bottom: bottom,
-			height: height,
-			duration: 660,
-			elasticity: 300
-		});
-	}
+// Device check for custom cursor, if uses touch, ignore
+const isTouchDevice = () => {
+     return 'ontouchstart' in window || navigator.maxTouchPoints // works on IE10/11 and Surface
+ }
 
-	var breathAnimation = anime({
-		targets: '.breath-animation svg',
-		viewBox: [ 
-			{ value: '0 0 52 35', duration: (oneFrame * 5) }, 
-			{ value: '0 0 52 35', duration: oneFrame }, 
-			{ value: '52 0 52 35', duration: oneFrame }, 
-			{ value: '104 0 52 35', duration: oneFrame }, 
-			{ value: '156 0 52 35', duration: oneFrame }, 
-			{ value: '156 0 52 35', duration: (oneFrame * 5) }, 
-		],
-		duration: ((oneFrame * 4) + (oneFrame * 5) + (oneFrame * 5)),
-		easing: 'frameAnimation',
-		direction: 'alternate',
-		loop: 6,
-		complete: function(){
-			if (BODY.hasClass('ready')){
-				breathAnimation.restart();
-			} else {
-				$breathAnimationContainer.addClass('hidden');
-				$wakeupAnimationContainer.removeClass('hidden');
-				wakeupAnimation.play();
-			}
-		}
-	});
+ const getContent = (element, url) => {
+    var request = new XMLHttpRequest();
 
-	var wakeupAnimation = anime({
-		targets: '.wakeup-animation svg',
-		viewBox: [ 
-			{ value: '0 0 52 37', duration: (oneFrame * 5) }, 
-			{ value: '0 0 52 37', duration: oneFrame }, 
-			{ value: '52 0 52 37', duration: oneFrame }, 
-			{ value: '104 0 52 37', duration: oneFrame }, 
-			{ value: '156 0 52 37', duration: oneFrame }, 
-			{ value: '208 0 52 37', duration: oneFrame }, 
-			{ value: '260 0 52 37', duration: oneFrame }, 
-			{ value: '312 0 52 37', duration: oneFrame }, 
-			{ value: '312 0 52 37', duration: (oneFrame * 5) }, 
-		],
-		duration: ((oneFrame * 7) + (oneFrame * 5) + (oneFrame * 5)),
-		easing: 'frameAnimation',
-		direction: 'alternate',
-		autoplay: false,
-		complete: function(){
-			$breathAnimationContainer.removeClass('hidden');
-			$wakeupAnimationContainer.addClass('hidden');
-			BODY.addClass('ready');
-			breathAnimation.restart();
-		}
-	});
-});
+    request.onreadystatechange = () => {
+        if (request.readyState === XMLHttpRequest.DONE) {
+           if (request.status === 200) {
+               element.innerHTML = request.responseText.match(/.*<section class="content".*>([\s\S]*)<\/section>.*/)[0].replace(/.*<section class="content".*>*/, '').replace(/<\/section>.*/, '')
+           }
+        }
+    };
+
+    request.open('GET', url, true);
+    request.send();
+}
+
+const updateContainers = (page, url) => {
+    // Variables
+    let body = select('body')[0]
+    let container = select('.container')[0]
+    let content = select('.content')[0]
+    let nav = select('.nav__item')
+    // Begin screen off CRT transition
+    body.classList.replace('screen-on', 'screen-off')
+
+    // Change content on a delay, just to get rid of the weird occasional pop in
+    setTimeout( () => {
+        // Update container class
+        container.classList = ''
+        container.classList.add('container', 'container-' + page, 'is-ready')
+
+        // Keep the nav in the DOM because it borks and reloads. 
+        // There's also a way to have it work with it, but simple class change works.
+        nav.forEach( el =>{
+            if (el.classList.contains('nav__item--' + page)) {
+                el.classList.replace('is-active', 'is-hidden')
+            } else {
+                el.classList.replace('is-hidden', 'is-active')
+            }
+        })
+
+        getContent(content, url)
+
+        // Turn on that screen!
+        body.classList.replace('screen-off', 'screen-on')
+    }, 800);
+}
+
+document.addEventListener('DOMContentLoaded', init)

@@ -1,4 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,700,700i,900');
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block; box-sizing: border-box;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Titillium Web Italic'), local('TitilliumWeb-Italic'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPAcZTIAOhVxoMyOr9n_E7fdMbWAaxWXr0.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Titillium Web Italic'), local('TitilliumWeb-Italic'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPAcZTIAOhVxoMyOr9n_E7fdMbWD6xW.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Titillium Web Bold Italic'), local('TitilliumWeb-BoldItalic'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPFcZTIAOhVxoMyOr9n_E7fdMbetIlDb5yciWM.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Titillium Web Bold Italic'), local('TitilliumWeb-BoldItalic'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPFcZTIAOhVxoMyOr9n_E7fdMbetIlDYZyc.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web Regular'), local('TitilliumWeb-Regular'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPecZTIAOhVxoMyOr9n_E7fdM3mDbRS.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web Regular'), local('TitilliumWeb-Regular'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPecZTIAOhVxoMyOr9n_E7fdMPmDQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Titillium Web Bold'), local('TitilliumWeb-Bold'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPDcZTIAOhVxoMyOr9n_E7ffHjDGIVzY4SY.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Titillium Web Bold'), local('TitilliumWeb-Bold'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPDcZTIAOhVxoMyOr9n_E7ffHjDGItzYw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Titillium Web Black'), local('TitilliumWeb-Black'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPDcZTIAOhVxoMyOr9n_E7ffEDBGIVzY4SY.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Titillium Web Black'), local('TitilliumWeb-Black'), url(https://fonts.gstatic.com/s/titilliumweb/v6/NaPDcZTIAOhVxoMyOr9n_E7ffEDBGItzYw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 
 /* Grabbed CRT Effect from https://codepen.io/lbebber/full/XJRdrV/ */
 /* BEGIN Colors 
@@ -15,18 +97,18 @@ html {
 	overflow-x: hidden;
 }
 
-.custom-cursor,
-.custom-cursor a:hover,
-.custom-cursor a:active,
-.custom-cursor a:focus,
-.custom-cursor *, 
-.custom-cursor *:hover, 
-.custom-cursor *:active, 
-.custom-cursor *:focus {
+.has-custom-cursor,
+.has-custom-cursor a:hover,
+.has-custom-cursor a:active,
+.has-custom-cursor a:focus,
+.has-custom-cursor *, 
+.has-custom-cursor *:hover, 
+.has-custom-cursor *:active, 
+.has-custom-cursor *:focus {
 	cursor: none;
 }
 
-.hidden {
+.is-hidden {
 	display: none;
 	visibility: hidden;
 	opacity: 0;
@@ -60,10 +142,10 @@ body, .container {
 	min-height: 100%;
 }
 
-html.home {
-	height: 100%;
+.container-home.container {
+	min-height: 100vh;
 }
-
+	
 body {
 	font-family: 'Titillium Web', sans-serif;
 	font-weight: 400;
@@ -73,7 +155,7 @@ body {
 	background-color: #65441a;
 }
 
-.container:after, #dumb-cursor:after {
+.container:after, #custom-cursor:after {
 	content: " ";
 	display: block;
 	position: absolute;
@@ -87,7 +169,7 @@ body {
 	pointer-events: none;
 }
 
-.container:before, #dumb-cursor:before {
+.container:before, #custom-cursor:before {
 	content: " ";
 	display: block;
 	position: absolute;
@@ -127,35 +209,35 @@ a:hover, a:active {
 	color: #89c4f4;
 }
 
-h2, h3 {
+h1, h2 {
 	text-transform: uppercase;
 }
 
-h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
 	color: #281D39;
 	margin: 0;
 	font-weight: 900;
 	line-height: 1;
 }
 
-h2 {
+h1 {
 	font-size: 4rem;
 }
 
-h3 {
+h2 {
 	font-size: 3rem;
 }
 
-h4 {
-	font-size: 2.6rem;
-}
-
-h5 {
+h3 {
 	font-size: 2rem;
 }
 
-h6 {
+h4 {
 	font-size: 1.4rem;
+}
+
+h5 {
+	font-size: 1rem;
 }
 
 p, ul, ol {
@@ -170,14 +252,6 @@ p, ul, ol {
 ul li, ol li {
 	margin: 4px 0px;
 }
-
-.small-caps {
-	color: #89c4f4;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: .8em;
-	letter-spacing: .02em;
-}
 /* END Typography */
 /* END Global */
 
@@ -189,11 +263,11 @@ ul li, ol li {
 	padding: 0 16px;
 }
 
-.container.home{
+.container.container-home{
 	height: 100%;
 }
 
-.container:not(.home){
+.container:not(.container-home){
 	height: 100%;
 	min-height: 100vh;
 }
@@ -222,9 +296,9 @@ header {
 	position: relative;
 }
 
-header, .content-container, footer {
-    z-index: 10;
-}
+/*header, .content, footer {*/
+/*    z-index: 100;*/
+/*}*/
 
 /* BEGIN Nav */
 nav ul li {
@@ -244,7 +318,7 @@ nav ul li a {
 	will-change: color;
 }
 
-nav ul li a .link-bar {
+nav ul li a .nav__link-bar {
     height: 10%;
     width: 110%;
     background: #89c4f4;
@@ -262,7 +336,7 @@ nav ul li a:active {
 /* END Header */
 
 /* BEGIN Container */
-.background-container{
+.bg-container{
 	position: absolute;
 	z-index: -10;
 	top: 0;
@@ -286,54 +360,50 @@ nav ul li a:active {
 	justify-content: center;
 }
 
-.sleepy-container {
+.bg-container__text {
 	margin-top: 80px;
 	position: relative;
 }
 
-.sleepy-container > * {
+.bg-container__text > * {
     display: block;
 }	
 
-.sleepy-container button {
+.bg-container__text button {
     margin-top: 16px;
 }
 
 /* BEGIN Content */
-.content-container {
+.content {
 	max-width: 1420px;
 	margin: 0 auto;
 }
 
-.content {
-	/*	margin-top: 16px;
+.content__container {
 	display: flex;
-	flex-direction: row;
-	width: 100%;*/
-	display: flex;
-	}
+}
 
-.content .left-column{
+.content__container .content__left{
 	width: calc((100%/3) * 2);
 	box-sizing: border-box;
 	padding-right: 10%;
 }
 
-.content .right-column {
+.content__container .content__right {
 	width: calc(100%/3);
 }
 
-.content .right-column p,
-.content .right-column ul li {
+.content__container .content__right p,
+.content__container .content__right ul li {
 	font-size: .75em;
 }
 
-.content ul li:before {
+.content__container ul li:before {
     content: "\25A0";
     color: #89c4f4;
 }
 
-.content ol li:before {
+.content__container ol li:before {
 	counter-increment: listCounter;
 	content: counter(listCounter,decimal-leading-zero);
 	color: #89c4f4;
@@ -342,22 +412,22 @@ nav ul li a:active {
 	font-weight: 700;
 }
 
-.content ul li:before,
-.content ol li:before {
+.content__container ul li:before,
+.content__container ol li:before {
 	margin-right: 24px;
 }
 /* END Content */
 
 /* BEGIN Animation Container */
-.container:not(.home) .animation-container,
-.container:not(.home) .sleepy-container,
-.container:not(.about) .content-container{
+.container:not(.container-home) .bg-container__anim,
+.container:not(.container-home) .bg-container__text,
+.container:not(.container-about) .content{
 	display: none;
 	visibility: hidden;
 	opacity: 0;
 }
 
-.animation-container {
+.bg-container__anim {
 	width: 100%;
 	max-width: 280px;
 	height: 200px;
@@ -372,13 +442,13 @@ nav ul li a:active {
 	transform: translateY(-90px)
 }
 
-.animation-container > * {
+.bg-container__anim > * {
 	width: 100%;
 	height: 100%;
 	position: relative;
 }
 
-.animation-container > * svg {
+.bg-container__anim > * svg {
 	width: 100%;
 	height: auto;
 	text-align: center;
@@ -389,7 +459,7 @@ nav ul li a:active {
 	overflow: visible;
 }
 
-.animation-container > *.hidden {
+.bg-container__anim > *.is-hidden {
 	visibility: hidden;
 	opacity: 0;
 }
@@ -417,15 +487,24 @@ footer .logo img{
 	width: 220px;
 }
 
-footer .tiny-text {
+
+.footer__email--small-caps {
+		color: #89c4f4;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: .8em;
+		letter-spacing: .02em;
+	}
+
+.footer__not-social--small {
 	font-size: .9em;
 }
 
-footer .footer-not-social{
+footer .footer__not-social{
 	text-align: right;
 }
 
-footer .footer-email {
+footer .footer__email {
     text-align: center;
 }
 
@@ -433,13 +512,13 @@ footer .footer-email {
 /* END Container */
 
 /* BEGIN Animations */
-body:not(.ready) .sleepy-container,
-body:not(.ready) .sleepy-container button{
+.container:not(.is-ready) .bg-container__text,
+.container:not(.is-ready) .bg-container__text button{
 	opacity: 0;
 	visibility: hidden;
 }
 
-.ready .sleepy-container p > * {
+.is-ready .bg-container__text p > * {
 	will-change: opacity, transform;
 	display: inline-block;
 	animation-name: fadeIn;
@@ -447,15 +526,15 @@ body:not(.ready) .sleepy-container button{
     animation-fill-mode: backwards;
 }
 
-.ready .sleepy-container p > *:nth-child(1){
+.is-ready .bg-container__text p > *:nth-child(1){
 	animation-delay: .2s;
 }
 
-.ready .sleepy-container p > *:nth-child(2){
+.is-ready .bg-container__text p > *:nth-child(2){
 	animation-delay: .4s;
 }
 
-.ready .sleepy-container p > *:nth-child(3){
+.is-ready .bg-container__text p > *:nth-child(3){
 	animation-delay: .6s;
 }
 
@@ -463,23 +542,23 @@ body:not(.ready) .sleepy-container button{
 /* BEGIN Small Desktop */
 @media screen and (max-width: 1024px) {
 	/* BEGIN Global */
-	h2 {
+	h1 {
 		font-size: 3rem;
 	}
 
-	h3 {
+	h2 {
 		font-size: 2rem;
 	}
 
-	h4 {
+	h3 {
 		font-size: 1.6rem;
 	}
 
-	h5 {
+	h4 {
 		font-size: 1rem;
 	}
 
-	h6 {
+	h5 {
 		font-size: .8rem;
 	}
 
@@ -488,14 +567,8 @@ body:not(.ready) .sleepy-container button{
 	}
 }
 
-@media screen and (min-width: 813px) {
-	.home.container {
-		min-height: 100vh;
-	}
-}
-
 @media screen and (max-width: 812px), screen  and (max-height: 889px) {
-	.container:not(.home) footer {
+	.container:not(.container-home) footer {
 		position: relative;
 	}
 }
@@ -503,19 +576,19 @@ body:not(.ready) .sleepy-container button{
 /* BEGIN Mobile */
 @media screen and (max-width: 812px) {
 	/* BEGIN Global */
-	h2 {
+	h1 {
 		font-size: 8.7vw;
 	}
 
-	h3 {
+	h2 {
 		font-size: 6.6vw;
 	}
 
-	h4 {
+	h3 {
 		font-size: 5.4vw;
 	}
 
-	h5 {
+	h4 {
 		font-size: 4.3vw;
 	}
 
@@ -524,18 +597,18 @@ body:not(.ready) .sleepy-container button{
 	}
 
 	/* BEGIN Header */
-	.content-container .content {
+	.content .content__container {
 		display: block;
 	}
 
-	.content .left-column,
-	.content .right-column {
+	.content__container .content__left,
+	.content__container .content__right {
 		width: 100%;
 		padding: 0;
 	}
 
-	.content .right-column p, 
-	.content .right-column ul li {
+	.content__container .content__right p, 
+	.content__container .content__right ul li {
 		font-size: 1em;
 	}
 
@@ -553,31 +626,31 @@ body:not(.ready) .sleepy-container button{
 		justify-items: stretch;
 	}
 
-	.container.home footer {
+	.container.container-home footer {
 		padding: 0 8px 24px;
 	}
 
-	footer .footer-logo {
+	.footer__logo {
 		grid-area: header;
 	    width: 100%;
 	}
 
-	footer .footer-logo .logo-container{
+	.footer__logo .footer__logo-container{
 		transform: scale(0.7);
 		text-align: center;
 	}
 
-	footer .footer-email{
+	.footer__email{
 		grid-area: email;
 		text-align: left;
 	}
 
-	footer .footer-not-social {
+	.footer__not-social {
 		grid-area: not-social;
 	}
 
-	footer .footer-email,
-	footer .footer-not-social {
+	.footer__email,
+	.footer__not-social {
 		width: 100%;
 	}
 }
@@ -665,7 +738,7 @@ body:not(.ready) .sleepy-container button{
 /* END Animations */
 
 /* BEGIN Custom Cursor */
-#dumb-cursor {
+#custom-cursor {
 	pointer-events: none;
 	position: absolute;
 	top: 0;
@@ -676,7 +749,12 @@ body:not(.ready) .sleepy-container button{
 	z-index: 1000;
 }
 
-#dumb-cursor.hidden {
+#custom-cursor.is-hovering {
+	background: cyan;
+	opacity: 0.6;
+}
+
+#custom-cursor.is-hidden {
 	display: none;
 	opacity: 0;
 	visibility: hidden;
