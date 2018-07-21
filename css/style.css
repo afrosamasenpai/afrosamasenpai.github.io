@@ -147,7 +147,7 @@ body, .container {
 }
 	
 body {
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Arial', sans-serif;
 	font-weight: 400;
 	color: #281D39;
 	line-height: 1.6;
@@ -184,6 +184,10 @@ body {
 }
 
 /* BEGIN Typography */
+h1, h2, h3, h4, h5, h6, header {
+	font-family: 'Titillium Web', sans-serif;
+
+}
 strong {
 	font-weight: 700;
 	color: #89c4f4;
@@ -244,7 +248,7 @@ p, ul, ol {
 	color: #FBCB9A;
 	font-weight: 400;
 	margin: 0 0 0.6rem;
-	font-size: 1.12rem;
+	font-size: 1.02rem;
 	letter-spacing: -0.03em;
 	counter-reset: listCounter;
 }
@@ -295,10 +299,6 @@ header {
 	padding: 8px 0;
 	position: relative;
 }
-
-/*header, .content, footer {*/
-/*    z-index: 100;*/
-/*}*/
 
 /* BEGIN Nav */
 nav ul li {
@@ -381,6 +381,11 @@ nav ul li a:active {
 
 .content__container {
 	display: flex;
+	margin-top: 1.4rem;
+}
+
+.content__container p {
+	margin: 0 0 1.4rem;
 }
 
 .content__container .content__left{
@@ -391,11 +396,6 @@ nav ul li a:active {
 
 .content__container .content__right {
 	width: calc(100%/3);
-}
-
-.content__container .content__right p,
-.content__container .content__right ul li {
-	font-size: .75em;
 }
 
 .content__container ul li:before {
@@ -607,11 +607,6 @@ footer .footer__email {
 		padding: 0;
 	}
 
-	.content__container .content__right p, 
-	.content__container .content__right ul li {
-		font-size: 1em;
-	}
-
 	/* BEGIN Footer */
 	footer {
 		padding: 48px 0 24px;
@@ -652,6 +647,24 @@ footer .footer__email {
 	.footer__email,
 	.footer__not-social {
 		width: 100%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	footer {
+		grid-template-areas: 
+			"header"
+			"email"
+			"not-social";
+		grid-template-columns: 100%; 
+	}
+	.footer__email {
+		margin-bottom: 1rem;
+	}
+	
+	footer .footer__email, 
+	footer .footer__not-social{
+		text-align: center;
 	}
 }
 
