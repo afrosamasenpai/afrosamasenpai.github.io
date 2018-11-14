@@ -401,6 +401,10 @@ nav ul li a:active {
 	width: calc(100%/3);
 }
 
+.content__container ul{
+	margin-bottom: 2em;
+}
+
 .content__container ul li:before {
     content: "\25A0";
     color: #89c4f4;
@@ -479,6 +483,10 @@ footer {
 	padding: 0 16px 24px;
 	display: flex;
 	flex-direction: row;
+}
+
+.container-about footer {
+	position: relative;
 }
 
 footer > * {
