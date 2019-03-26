@@ -348,10 +348,9 @@ footer .footer__not-social {
 		width: 288px;
 	}
 
-	.container .bg-container .bg-container__anim {
-		width: 100%;
-		max-width: 280px;
-		height: 200px;
+	.container .bg-container .bg-container__anim > * {
+		width: 324px;
+		height: 242px;
 	}
 }
 
