@@ -428,11 +428,17 @@ footer .footer__not-social {
 	footer {
 		font-size: .7rem;
 		grid-row-gap: calc(var(--row-gap) / 4);
+		text-align: center;
 	}
 
 	footer .footer__logo {
 		max-width: 110px;
 		text-align: left;
+	}
+
+
+	.footer__not-social br {
+		display: none;
 	}
 }
 /* END Media Queries */
