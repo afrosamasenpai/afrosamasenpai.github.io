@@ -17,7 +17,7 @@ Current. What was the last one? It's been going on for long enough that I've los
 ###### v0.06558.72
 
  - Redone with the vast majority of the positioning done via grid and flexbox.
- - Removed CRT animations because they can't be lower powered machines. Special thanks to my second hand, Mac Book Pro circa 2007 with Ubuntu installed. You tried really hard.
+ - Removed CRT animations because they can't be run smoothly on lower powered machines. Special thanks to my second hand, Mac Book Pro circa 2007 with Ubuntu installed. You tried really hard.
    
 
    **Luckily is goes faster and I now know how to do CSS3-esque keyframes in `anime.js`. So that's a plus.**
