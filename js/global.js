@@ -6,7 +6,7 @@ const init = () => {
     let navItem = select('.nav__item')
     let breathContainer = select('.bg-container__breath')
     let wakeContainer = select('.bg-container__wake')
-    // Animation needs to be a function based value
+    // Animation timing needs to be a function based value
     // Function inside a function
     let oneFrame = 133
     let frameAnimation = () => (t) => 0;
@@ -32,11 +32,10 @@ const init = () => {
             let name = navLink.getAttribute('data-name')
             let url = navLink.getAttribute('href') 
 
-            history.pushState(null, null, url)
-
             // Make sure you don't constantly reload if clicking a link you're already on.
             if (e.target != window.location.href) {
-                updateContainers(name, url);
+                history.pushState(null, null, url)
+                updateContent(name, url);
             }
         })
         
@@ -123,6 +122,15 @@ const textAnimation = anime({
     autoplay: false
 })
 
+const loadingAnimation = anime({
+    targets: select('.loading__animation'),
+    opacity: [0, 1],
+    easing: 'steps(3)',
+    loop: true,
+    autoplay: false,
+    direction: 'alternate',
+})
+
 // Device check for custom cursor, if uses touch, ignore
 const isTouchDevice = () => {
      return 'ontouchstart' in window || navigator.maxTouchPoints // works on IE10/11 and Surface
@@ -139,57 +147,55 @@ const navHover = (selector, height = '10%') => {
     })
 }
 
-// Now returns a promise!
-const getContent = (element, url) => {
-    let prom = new Promise( (resolve, reject) => {
-
-        // Chuck the request in here and handle to stuff on success
-        // Like promises do
-        let request = new XMLHttpRequest()
-        request.open('GET', url)
-        request.onload = () => resolve(request.responseText)
-        request.onerror = () => reject(request.statusText)
-        request.send()
-
-    }).then( (val) => {
-
-        let newContent = val.match(/.*<article class="content grid-layout".*>([\s\S]*)<\/article>.*/)[0].replace(/.*<article class="content grid-layout".*>*/, '').replace(/<\/article>.*/, '')
-        element.innerHTML = newContent;
-
-    }).catch( (reason) => {
-        element.innerHTML = reason;
-    })
-}
-
-const updateContainers = (page, url) => {
-    // Variables
+const updateContent = (page, url) => {
     let body = select('body')
     let container = select('.container')
     let content = select('.content')
     let nav = select('.nav__item')
+    let loadingIcon = select('.loading')
 
-    // Change content on a delay, just to get rid of the weird occasional pop in
-    // Update container class
-    setTimeout( () => {
-        content.innerHTML = '';
-        container.classList = ''
-        container.classList.add('container', 'container-' + page, 'is-ready', 'grid-layout')
+    fetch(url, {method: 'get'}).then( response => {
+        container.classList.add('is-loading');
+        loadingIcon.classList.remove('is-hidden');
+        loadingAnimation.play();
+      
+        return response.text();
+    }).then( val => {
+      let newContent = val.match(/.*<article class="content grid-layout".*>([\s\S]*)<\/article>.*/)[0].replace(/.*<article class="content grid-layout".*>*/, '').replace(/<\/article>.*/, '')
+      
+      loadingIcon.classList.add('is-hidden');
+      container.classList = '';
+      container.classList.add('container', 'container--' + page, 'is-ready', 'grid-layout');
+      loadingAnimation.pause();
 
-        // Keep the nav in the DOM because it borks and reloads. 
-        // There's also a way to have it work with it, but simple class change works.
-        nav.forEach( el =>{
-            if (el.classList.contains('nav__item--' + page)) {
-                el.classList.replace('is-active', 'is-hidden')
-                el.setAttribute('aria-hidden', 'true')
-            } else {
-                el.classList.replace('is-hidden', 'is-active')
-                el.setAttribute('aria-hidden', 'false')
-            }
-        })
-        
-        textAnimation.seek(textAnimation.duration);
-        getContent(content, url)
-    }, 200);  
+      // Keep the nav in the DOM because it borks and reloads. 
+      // There's also a way to have it work with it, but simple class change works.
+      nav.forEach( el =>{
+          if (el.classList.contains('nav__item--' + page)) {
+              el.classList.replace('is-active', 'is-hidden')
+              el.setAttribute('aria-hidden', 'true')
+          } else {
+              el.classList.replace('is-hidden', 'is-active')
+              el.setAttribute('aria-hidden', 'false')
+          }
+      })
+
+      textAnimation.seek(textAnimation.duration);
+      content.innerHTML = newContent;
+      
+    }).catch( reason => {
+        container.classList = '';
+      container.classList.add('container', 'container--error', 'is-ready', 'grid-layout')
+      
+        content.innerHTML = `   
+          <header class="content__header">
+            <h1>The was an error</h1>
+          </header>
+
+          <section class="content__container grid-layout">
+          <p>${reason}</p>
+          </section>`
+    })
 }
  
 

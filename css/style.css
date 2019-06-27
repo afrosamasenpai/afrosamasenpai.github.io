@@ -28,7 +28,7 @@ html {
 }
 
 body {
-	font-family: 'Inter var', 'Inter', 'Arial', sans-serif;
+	font-family: 'Inter var experimental','Inter', 'Arial', sans-serif;
 	font-weight: 400;
 	line-height: var(--line-height);
 	overflow-x: hidden;
@@ -115,6 +115,7 @@ strong {
 
 em {
 	font-style: italic;	
+  font-variation-settings: 'slnt' 10deg;
 }
 
 p, ul, ol {
@@ -127,12 +128,14 @@ p, ul, ol, a, footer {
 
 a {
 	text-decoration-color: var(--blue);
+  font-weight: 400;
 	transition: .2s ease font-variation-settings;
 	font-variation-settings: 'wght' 400;
 }
 
 a:hover, a:active {
 	color: var(--blue);
+  font-weight: 700;
 	font-variation-settings: 'wght' 700;
 }
 
@@ -195,11 +198,15 @@ nav ul li a:active .nav__link-bar{
 
 /* BEGIN Utility classes */
 .is-hidden, 
-.container:not(.container-home) .bg-container,
-.container:not(.container-home) .bg-container {
+.container:not(.container--home) .bg-container {
 	display: none;
 	visibility: hidden;
 	opacity: 0;
+}
+
+.is-loading article,
+.is-loading .bg-container {
+  opacity: .6;
 }
 /* END Utility classes */
 
@@ -214,7 +221,7 @@ nav ul li a:active .nav__link-bar{
 	min-height: 100vh;
 }
 
-.container.container-home {
+.container.container--home {
 	height: 100vh;
 }
 
@@ -295,6 +302,28 @@ footer .footer__not-social {
 
 /* END Layout */
 
+/* BEGIN Loading Icon */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loading__animation {
+  animation: pulse 1s infinite;
+  color: var(--blue);
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+/* END Loading Icon */
+
 /* BEGIN Background Animation */
 .container .bg-container {
 	position: absolute;
@@ -354,7 +383,7 @@ footer .footer__not-social {
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 812px) {
 	:root {
 		--font-size: 18px;
 	}
@@ -380,10 +409,6 @@ footer .footer__not-social {
 	.container .bg-container .bg-container__anim > * {
 		width: 104px;
 		height: 74px;
-	}
-
-	footer {
-		font-size: .8rem;
 	}
 
 	footer .footer__logo {
@@ -417,7 +442,7 @@ footer .footer__not-social {
 		grid-column: 1 / 5;
 	}
 
-	.container.container-about {
+	.container.container--about {
 		grid-template-rows: calc(var(--line-height) * 2) auto auto;
 	}
 
@@ -426,7 +451,6 @@ footer .footer__not-social {
 	}
 
 	footer {
-		font-size: .7rem;
 		grid-row-gap: calc(var(--row-gap) / 4);
 		text-align: center;
 	}
