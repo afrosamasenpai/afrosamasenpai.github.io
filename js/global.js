@@ -47,7 +47,7 @@ const init = () => {
         let url = window.location.href
         let subDirectory = url.match(urlReg)[2]
 
-        return (subDirectory === undefined) ? updateContainers('home', '/') : updateContainers(subDirectory, url)
+        return (subDirectory === undefined) ? updateContent('home', '/') : updateContent(subDirectory, url)
     })
 
     // Breating Animation
