@@ -161,17 +161,18 @@ const updateContent = (page, url) => {
       
         return response.text();
     }).then( val => {
-      let newContent = val.match(/.*<article class="content grid-layout".*>([\s\S]*)<\/article>.*/)[0].replace(/.*<article class="content grid-layout".*>*/, '').replace(/<\/article>.*/, '')
-      
+      let dummy = document.createElement( 'html' );
+      dummy.innerHTML = val;
+
       loadingIcon.classList.add('is-hidden');
       container.classList = '';
-      container.classList.add('container', 'container--' + page, 'is-ready', 'grid-layout');
+      container.classList.add('container', `container--${page}`, 'is-ready', 'grid-layout');
       loadingAnimation.pause();
 
       // Keep the nav in the DOM because it borks and reloads. 
       // There's also a way to have it work with it, but simple class change works.
       nav.forEach( el =>{
-          if (el.classList.contains('nav__item--' + page)) {
+          if (el.classList.contains(`nav__item--${page}`)) {
               el.classList.replace('is-active', 'is-hidden')
               el.setAttribute('aria-hidden', 'true')
           } else {
@@ -181,20 +182,20 @@ const updateContent = (page, url) => {
       })
 
       textAnimation.seek(textAnimation.duration);
-      content.innerHTML = newContent;
+      content.innerHTML = select('article.content', dummy).innerHTML;
       
     }).catch( reason => {
         container.classList = '';
-      container.classList.add('container', 'container--error', 'is-ready', 'grid-layout')
-      
-        content.innerHTML = `   
-          <header class="content__header">
-            <h1>The was an error</h1>
-          </header>
+        container.classList.add('container', 'container--error', 'is-ready', 'grid-layout')
+        
+          content.innerHTML = `   
+            <header class="content__header">
+              <h1>There was an error</h1>
+            </header>
 
-          <section class="content__container grid-layout">
-          <p>${reason}</p>
-          </section>`
+            <section class="content__container grid-layout">
+            <p>${reason}</p>
+            </section>`
     })
 }
  
