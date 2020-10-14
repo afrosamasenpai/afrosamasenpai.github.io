@@ -21,7 +21,7 @@ const init = () => {
         if ( !isTouchDevice() ){
             // Hover animation
             navLink.addEventListener('mouseenter', e => navHover(navBar, '110%') )
-            
+
             navLink.addEventListener('mouseleave', e => navHover(navBar) )
         }
 
@@ -30,7 +30,7 @@ const init = () => {
             e.preventDefault()
 
             let name = navLink.getAttribute('data-name')
-            let url = navLink.getAttribute('href') 
+            let url = navLink.getAttribute('href')
 
             // Make sure you don't constantly reload if clicking a link you're already on.
             if (e.target != window.location.href) {
@@ -38,7 +38,7 @@ const init = () => {
                 updateContent(name, url);
             }
         })
-        
+
     })
 
     window.addEventListener('popstate', e => {
@@ -53,13 +53,13 @@ const init = () => {
     // Breating Animation
     const breathAnimation = anime({
         targets: select('svg', breathContainer),
-        viewBox: [ 
-            { value: '0 0 52 37', duration: (oneFrame * 5) }, 
+        viewBox: [
+            { value: '0 0 52 37', duration: (oneFrame * 5) },
             { value: '0 0 52 37', duration: oneFrame },
-            { value: '52 0 52 37', duration: oneFrame }, 
-            { value: '104 0 52 37', duration: oneFrame }, 
-            { value: '156 0 52 37', duration: oneFrame }, 
-            { value: '156 0 52 37', duration: (oneFrame * 5) }, 
+            { value: '52 0 52 37', duration: oneFrame },
+            { value: '104 0 52 37', duration: oneFrame },
+            { value: '156 0 52 37', duration: oneFrame },
+            { value: '156 0 52 37', duration: (oneFrame * 5) },
         ],
         duration: oneFrame * 14,
         easing: frameAnimation,
@@ -74,22 +74,22 @@ const init = () => {
                 wakeContainer.classList.remove('is-hidden')
                 wakeupAnimation.play()
             }
-        }      
+        }
     })
 
     // Wakeup Animation
     const wakeupAnimation = anime({
          targets: select('svg', wakeContainer),
-         viewBox: [ 
-             { value: '0 0 52 37', duration: (oneFrame * 5) }, 
+         viewBox: [
+             { value: '0 0 52 37', duration: (oneFrame * 5) },
              { value: '0 0 52 37', duration: oneFrame },
-             { value: '52 0 52 37', duration: oneFrame }, 
-             { value: '104 0 52 37', duration: oneFrame }, 
-             { value: '156 0 52 37', duration: oneFrame }, 
-             { value: '208 0 52 37', duration: oneFrame }, 
-             { value: '260 0 52 37', duration: oneFrame }, 
-             { value: '312 0 52 37', duration: oneFrame }, 
-             { value: '312 0 52 37', duration: (oneFrame * 5) }, 
+             { value: '52 0 52 37', duration: oneFrame },
+             { value: '104 0 52 37', duration: oneFrame },
+             { value: '156 0 52 37', duration: oneFrame },
+             { value: '208 0 52 37', duration: oneFrame },
+             { value: '260 0 52 37', duration: oneFrame },
+             { value: '312 0 52 37', duration: oneFrame },
+             { value: '312 0 52 37', duration: (oneFrame * 5) },
          ],
          duration: oneFrame * 17,
          easing: frameAnimation,
@@ -158,7 +158,7 @@ const updateContent = (page, url) => {
         container.classList.add('is-loading');
         loadingIcon.classList.remove('is-hidden');
         loadingAnimation.play();
-      
+
         return response.text();
     }).then( val => {
       let dummy = document.createElement( 'html' );
@@ -169,7 +169,7 @@ const updateContent = (page, url) => {
       container.classList.add('container', `container--${page}`, 'is-ready', 'grid-layout');
       loadingAnimation.pause();
 
-      // Keep the nav in the DOM because it borks and reloads. 
+      // Keep the nav in the DOM because it borks and reloads.
       // There's also a way to have it work with it, but simple class change works.
       nav.forEach( el =>{
           if (el.classList.contains(`nav__item--${page}`)) {
@@ -183,12 +183,12 @@ const updateContent = (page, url) => {
 
       textAnimation.seek(textAnimation.duration);
       content.innerHTML = select('article.content', dummy).innerHTML;
-      
+
     }).catch( reason => {
         container.classList = '';
         container.classList.add('container', 'container--error', 'is-ready', 'grid-layout')
-        
-          content.innerHTML = `   
+
+          content.innerHTML = `
             <header class="content__header">
               <h1>There was an error</h1>
             </header>
@@ -198,6 +198,5 @@ const updateContent = (page, url) => {
             </section>`
     })
 }
- 
 
 document.addEventListener('DOMContentLoaded', init)

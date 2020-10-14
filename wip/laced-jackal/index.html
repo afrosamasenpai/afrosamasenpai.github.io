@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Laced Jackal</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="js/anime.min.js" type="text/javascript" defer></script>
+    <script src="js/script.js" type="module" type="text/javascript" defer></script>
+  </head>  
+  <body>
+    <h1>Laced Jackal</h1>
+    <div>
+      <p>
+        It's actually just rock-paper-scissors. Best 2-out-of-3. Cool stuff to come later.
+      </p>
+      <p>
+        <span>Rules:</span>
+        <ul>
+          <li>Grapples beat Strikes.</li>
+          <li>Strikes beat Taunts.</li>
+          <li>Taunts beat Grapples.</li>
+          <li>Draw games that do not result in either winning will give both players a point.</li>
+          <li>This is a gauntlet. You lose a set and you're done.</li>
+        </ul>
+      </p>
+    </div>
+    
+    <div class="player-action">
+      <button class="player-action__btn" role="button" data-action="grapple">Grapple</button>
+      <button class="player-action__btn" role="button" data-action="strike">Strike</button>
+      <button class="player-action__btn" role="button" data-action="taunt">Taunt</button>
+      <button class="player-action__btn" role="button" data-action="skip">Skip</button>
+    </div>
+    
+    <button class="reset__btn" role="button" disabled="true">Reset</button>
+    <button class="continue__btn" role="button" disabled="true">Continue</button>
+    
+    <div class="game-output">
+      <div class="game-output__current-opponent">
+        <span class="game-output__current-opponent-label">Current opponent:</span>
+        <span class="game-output__current-opponent-name"></span>
+      </div>
+      
+      <span>Player wins: <span class="game-output__count game-output__count--player">0</span></span>
+      <span>CPU wins: <span class="game-output__count game-output__count--cpu">0</span></span>
+      
+      <div class="game-output__container">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -63,7 +63,7 @@ p a:hover{
 		display: none;
 	}
 }
-@media screen and (min-width: 661px){}
+@media screen and (min-width: 661px){
 	.main-nav{
 		height: 60px;
 		position: fixed;
